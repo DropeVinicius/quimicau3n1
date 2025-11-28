@@ -1,0 +1,3131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Script do MathJax no <head> -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    
+    <title>Nivelamento - Quimica Nivel 1 - Unidade 3</title>
+
+    <style>
+        /* Global styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        .titulo-programa {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 50px;
+            color: #003974;
+            font-weight: lighter;
+        }
+
+        .titulo-materia {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 133px;
+            color: #003974;
+            font-weight: lighter;
+        }
+
+        .subtitulo-professor {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 59px;
+            color: #0058B4;
+            font-weight: lighter;
+        }
+
+        .titulo-unidade {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 60px;
+        }
+
+        .titulo-saiba-mais {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 70px;
+        }
+        /* Estilização de Bebas Neue FIM */
+
+
+        /* Estilização de Roboto INICIO */
+        .peso-1 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 45px;
+        }
+
+        .texto {
+            font-family: 'Roboto', sans-serif;
+            font-size: 35px;
+        }
+
+        .sub-texto {
+            font-family: 'Roboto', sans-serif;
+            font-size: 25px;
+        }
+
+        .titulo-box {
+            font-family: 'Roboto', sans-serif;
+            font-size: 32px;
+        }
+
+        .fonte {
+            font-family: 'Roboto', sans-serif;
+            font-size: 25px;
+        }
+
+        .citacao {
+            font-family: 'Roboto', sans-serif;
+            font-size: 30px;
+            font-style: italic;
+        }
+        /* Estilização de Roboto FIM */
+
+        /* Navbar styles INICIO */
+        .navbar {
+            background-color: #9F43BE;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            position: -webkit-sticky; /* Para navegadores antigos */
+            position: sticky; /* Para manter no topo durante o scroll */
+            top: 0; /* Faz com que a navbar fique no topo */
+            z-index: 10; /* Garante que o menu fique acima de outros elementos */
+            transition: background-color 0.3s ease; /* Transição suave para o efeito */
+        }
+
+        .navbar .logo img {
+            height: 50px;/* Ajuste conforme necessário */
+            width: auto;
+        }
+
+        .navbar .menu-toggle {
+            cursor: pointer;
+            font-size: 1.5em;
+            display: block;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: none;
+            flex-direction: column;
+            background-color: #9f43be;
+            position: absolute;
+            top: 60px;
+            right: 0;
+            width: 200px;
+            height: auto;
+            border-radius: 5px;
+            z-index: 10; /* Garante que o menu esteja acima de outros elementos */
+        }
+
+        .navbar ul.show {
+            display: flex;
+        }
+
+        .navbar ul li {
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .navbar ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .navbar ul li a:hover {
+            color: #003974; /* Cor ao passar o mouse */
+        }
+        .navbar .menu-toggle i:last-child {
+            display: none; /* Esconde o ícone de fechar inicialmente */
+        }
+        
+
+         /* Navbar styles FIM */
+
+        /* Titulo styles INICIO */
+        .titulo-intro {
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .titulo-intro h1 {
+            margin: 0;
+            padding: 15px;
+        }
+        /* Titulo styles FIM */
+
+        /* Estilo da Capa do Livro INICIO*/
+        .capa-livro {
+            position: relative;
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden; /* Para evitar que o pseudoelemento saia do container */
+            border-top: 3px solid #003974;
+            border-bottom: 3px solid #003974;
+        }
+
+        .capa-livro::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://res.cloudinary.com/di4ria1pf/image/upload/v1761845452/207385370_m_qovbgr.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.40; /* Controle da opacidade */
+            z-index: -1; /* Coloca o background atrás do conteúdo */
+        }
+
+        
+
+        .capa-livro .conteudo-capa {
+            text-align: center;
+            color: white;
+            padding: 20px; /* Espaço interno para o texto */
+        }
+
+        .capa-livro .titulo-materia {
+            font-size: 80px;
+            font-family: 'Bebas Neue', cursive;
+            margin: 0;
+        }
+
+        .capa-livro .subtitulo-professor {
+            font-size: 40px;
+            font-family: 'Bebas Neue', cursive;
+            margin: 10px 0 0;
+        }
+        /* Estilo da Capa do Livro FIM*/
+
+        /* Barra Superior */
+        .barra-superior {
+            background-color: #015A42; /* Cor verde escuro */
+            width: 100%;
+            padding: 15px 15px;
+            text-align: center;
+            box-sizing: border-box; /* Inclui padding e bordas no cálculo da largura */
+            overflow-x: hidden; /* Previne rolagem horizontal */
+        }
+
+        .barra-superior .titulo-barra {
+            font-family: 'Bebas Neue', cursive;
+            color: #FFF; /* Cor branca */
+            font-size: 50px;
+            font-weight: lighter;
+            margin: 0;
+        }
+
+        /* Conteúdo da Introdução */
+        .introducao {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0;
+            overflow-x: hidden; /* Impede rolagem horizontal */
+        }
+        
+        .introducao .titulo-introducao {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 50px;
+            font-weight: lighter;
+            color: #015A42; /* Cor verde */
+            margin: 10px auto 10px auto;
+        }
+
+        .introducao .caixa-texto {
+            width: 100%;
+            background-color: #E2F4EB; /* Verde mais claro */
+            padding: 64px 0;
+        }
+                /* Conteúdo centralizado dentro da faixa */
+        .introducao .conteudo-centralizado {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Parágrafos da introdução */
+        .introducao .conteudo-centralizado p {
+            font-family: 'Roboto', sans-serif;
+            font-size: 19px;
+            line-height: 1.6;
+            text-align: justify;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        /* RESPONSIVIDADE SEÇÕES ACIMA*/
+        /* Capa do Livro - Responsividade */
+        @media (max-width: 768px) {
+            .capa-livro {
+                height: 70vh; /* Reduz a altura da capa */
+            }
+            .capa-livro::before {
+                background-position: center center; /* centraliza melhor no mobile */
+            }
+            .capa-livro .titulo-materia {
+                font-size: 40px; /* Reduz o tamanho do título */
+            }
+
+            .capa-livro .subtitulo-professor {
+                font-size: 24px; /* Reduz o tamanho do subtítulo */
+            }
+            .capa-livro .titulo-programa {
+                font-size: 18px;
+            }
+            .capa-livro .conteudo-capa {
+                padding: 15px; /* Ajusta o padding para telas menores */
+            }
+        }   
+            /* Seção Introdução - Responsividade */
+        @media (max-width: 768px) {
+            .barra-superior {
+                padding: 10px; /* Reduz o padding da barra */
+            }
+
+            .barra-superior .titulo-barra {
+                font-size: 1.6rem;
+                max-width: 800px;
+                margin: 10px 0;
+                padding: 0 30px;
+                text-align: left;
+            }
+
+            .introducao .titulo-introducao {
+                font-size: 2.8rem; /* Reduz o tamanho do título da introdução */
+                margin-top: 20px; /* Ajusta o espaçamento superior */
+            }
+
+            .introducao .caixa-texto {
+                padding: 20px; /* Reduz o padding da caixa de texto */
+                width: 100%; /* Ajusta a largura da caixa */
+            }
+
+            .introducao .caixa-texto p {
+                font-size: 1rem; /* Reduz o tamanho do texto */
+                line-height: 1.4;
+                margin-bottom: 10px; /* Ajusta a margem entre os parágrafos */
+            }
+            .introducao .conteudo-centralizado {
+                max-width: 800px;
+                margin: 10px 0;
+                padding: 0 40px;
+            }
+        }
+        /* Responsividade para o título da seção de Programa */
+        @media (max-width: 768px) {
+            .titulo-programa {
+                font-size: 50px; /* Ajuste do tamanho do título */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .titulo-programa {
+                font-size: 35px; /* Ajuste para telas muito pequenas */
+            }
+        }
+
+        /* Estilo base da seção */
+        .secao1 .conteudo-secao {
+            width: 100% !important;
+            padding: 64px 0 !important; /* padding vertical conforme solicitado */
+            box-sizing: border-box !important;
+        }
+        .secao1 .acordeon-container {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+        .secao1 .tabs-section {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+        /* Estilo base da seção */
+        .secao1 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #9f43be11;
+            padding: 20px;
+        }
+        .secao1 .outer-container-alt {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+       }
+        /* Imagem de topo */
+        .secao1 .imagem-topo {
+            width: 100%;
+            height: auto;
+            max-height: 290px; /* ajuste essa altura conforme necessário */
+            object-fit: cover; /* garante que a imagem preencha sem distorcer */
+            display: block;
+            margin: 0;
+            padding: 0;
+            background-color: #FFF;
+        }
+
+        /* Faixa verde */
+        .secao1 .faixa-verde {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            text-align: left;
+        }
+
+        .secao1 .faixa-verde .titulo-secao {
+            font-size: 25px;
+            font-family: 'Roboto', sans-serif;
+            color: #015A42; /* Cor verde */
+            width: 90%;
+            margin: 20px auto;
+            max-width: 800px;
+            text-align: left;
+        }
+        .secao1 .titulo-verde {
+            font-size: 20px;
+            font-family: 'Roboto', sans-serif;
+            color: #015A42; /* Cor verde */
+            width: 90%;
+            margin: 20px auto;
+            max-width: 800px;
+            text-align: left;
+        }
+        /* Parágrafo padrão */
+        .secao1 p {
+            font-size: 19px;
+            text-align: justify;
+            line-height: 1.6;
+            color: #333;
+            margin: 10px auto;
+            width: 90%;
+            max-width: 800px;    
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .secao1 .faixa-verde .titulo-secao {
+                font-size: 20px;
+            }
+
+            .secao1 p {
+                font-size: 1rem;
+            }
+            .secao1 .imagem-topo {
+                max-height: 180px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .secao1 .faixa-verde .titulo-secao {
+                font-size: 20px;
+            }
+
+            .secao1 p {
+                font-size: 0.95rem;
+            }
+        }
+        /* Estilo base da seção */
+        .secao2 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background-color: #fff;
+        }
+        .secao2 .conteudo-secao {
+            width: 100%;
+            padding: 64px 0;
+            box-sizing: border-box;
+        }
+        .secao2 .acordeon-container {
+            width: 90%;
+            max-width: 800px;
+            margin: 10px auto;
+        }
+       .secao2 .outer-container {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+       }
+        /* Imagem de topo */
+        .secao2 .imagem-topo {
+            width: 100%;
+            height: auto;
+            max-height: 290px; /* ajuste essa altura conforme necessário */
+            object-fit: cover; /* garante que a imagem preencha sem distorcer */
+            display: block;
+            margin: 0;
+            padding: 0;
+            background-color: #FFF;
+        }
+
+        /* Faixa verde */
+        .secao2 .faixa-verde {
+            width: 100%;
+            background-color: #fff;
+            padding: 10px;
+            box-sizing: border-box;
+            text-align: left;
+        }
+
+        .secao2 .faixa-verde .titulo-secao {
+            font-size: 25px;
+            font-family: 'Roboto', sans-serif;
+            color: #015A42; /* Cor verde */
+            width: 90%;
+            margin: 20px auto;
+            max-width: 800px;
+            text-align: left;
+        }
+        .secao2 .titulo-verde {
+            font-size: 20px;
+            font-family: 'Roboto', sans-serif;
+            color: #3a95a6; /* Cor verde */
+            width: 90%;
+            margin: 20px auto;
+            max-width: 800px;
+            text-align: left;
+        }
+        /* Parágrafo padrão */
+        .secao2 p {
+            font-size: 19px;
+            font-family: 'Roboto', sans-serif;
+            text-align: justify;
+            line-height: 1.6;
+            color: #333;
+            margin: 10px auto;
+            width: 90%;
+            max-width: 800px;
+                 
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .secao2 .faixa-verde .titulo-secao {
+                font-size: 30px;
+            }
+
+            .secao2 p {
+                font-size: 1rem;
+            }
+            .secao2 .imagem-topo {
+                max-height: 180px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .secao2 .faixa-verde .titulo-secao {
+                font-size: 24px;
+            }
+
+            .secao2 p {
+                font-size: 0.95rem;
+            }
+        }
+        /* ===== ESTRUTURA DA CAIXA ===== */
+        .caixa-dupla {
+            position: relative;
+            display: inline-block;
+            max-width: 650px;
+            width: 80%;
+        }
+
+        /* Fundo verde atrás */
+        .caixa-dupla::before {
+            content: "";
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            width: 100%;
+            height: 100%;
+            background-color: #015A42;
+            border-radius: 12px;
+            z-index: 0;
+        }
+
+        /* Caixa frontal */
+        .caixa-conteudo {
+            position: relative;
+            background-color: rgba(230, 242, 238, 0.75); /* leve transparência */
+            border: 2px solid #015A42;
+            border-radius: 12px;
+            padding: 32px 40px;
+            text-align: center;
+            font-size: 1rem;
+            font-weight: normal;
+            z-index: 1;
+            box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            transform: translate(3px, 3px); /* deslocamento diagonal */
+        }
+
+        /* ===== VERSÃO DESKTOP (padrão) ===== */
+        @media (min-width: 992px) {
+        .caixa-conteudo {
+            max-width: 600px;
+            padding: 22px 48px;
+            font-size: 0.9rem;
+        }
+
+        .caixa-dupla::before {
+            top: 8px;
+            left: 8px;
+            border-radius: 14px;
+        }
+        }
+
+        /* ===== RESPONSIVO PARA TABLETS ===== */
+        @media (max-width: 768px) {
+        .caixa-conteudo {
+            padding: 16px 28px;
+            font-size: 0.95rem;
+        }
+
+        .caixa-dupla::before {
+            top: 6px;
+            left: 6px;
+        }
+        }
+
+        /* ===== RESPONSIVO PARA CELULARES ===== */
+        @media (max-width: 480px) {
+        .caixa-conteudo {
+            padding: 12px 20px;
+            font-size: 0.9rem;
+        }
+
+        .caixa-dupla::before {
+            top: 4px;
+            left: 4px;
+        }
+        }
+
+         /* Título centralizado fora do container */
+        .titulo-figura-central {
+            font-family: 'Roboto', sans-serif;
+            font-size: 18px;
+            color: #333;
+            text-align: center;
+            font-weight: normal;
+            margin: 20px auto 15px auto;
+        }
+
+        .titulo-figura-central .figura {
+            color: #015A42; /* verde padrão */
+        }
+
+        .titulo-figura-central .figura::after {
+            content: " ";
+            white-space: pre;
+        }
+
+        /* Bloco de figura simples (sem borda e sem fundo) */
+        .bloco-figura-simples {
+            width: 90%;
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 0;
+            background: none;
+            border: none;
+            text-align: center;
+        }
+
+        /* Imagem centralizada */
+        .bloco-figura-simples .figura-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 8px;
+        }
+
+        .bloco-figura-simples .figura-container img {
+            max-width: 55%;
+            height: auto;
+            display: block;
+        }
+
+        /* Fonte abaixo da imagem */
+        .bloco-figura-simples .fonte-imagem {
+            font-size: 12px;
+            color: #555;
+            text-align: center;
+            margin: 5px auto 12px auto;
+            max-width: 90%;
+        }
+
+        /* Descrição mais larga */
+        .bloco-figura-simples .descricao-figura-larga {
+            font-size: 14px;
+            color: #333;
+            text-align: justify;
+            line-height: 1.8;
+            max-width: 95%;
+            margin: 0 auto;
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .titulo-figura-central {
+                font-size: 16px;
+                margin-bottom: 10px;
+            }
+            .bloco-figura-simples .descricao-figura-larga {
+                font-size: 13px;
+                max-width: 100%;
+            }
+        }
+
+        .quadro-problema {
+            max-width: 800px;
+            width: 95%; /* adapta o quadro à tela menor */
+            margin: 20px auto;
+            border: 2px solid #015A42;
+            border-radius: 10px;
+            overflow: hidden;
+            font-family: 'Roboto', sans-serif;
+            box-sizing: border-box;
+        }
+
+        .quadro-problema .topo {
+            background-color: #ffffff;
+            padding: 10px;
+            
+        }
+
+        .quadro-problema .resolucao {
+            background-color: #E2F4EB;
+            padding: 10px;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .quadro-problema h3 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .quadro-problema p {
+            line-height: 1.6;
+            font-size: 16px;
+            margin: 20px auto;
+        }
+
+        .quadro-problema code {
+            background-color: #d9f0e1;
+            padding: 2px 4px;
+            border-radius: 20px;
+            font-family: monospace;
+        }
+        /* Estilos para cálculos matemáticos extensos */
+        .math-equation-container {
+            width: 100%;
+            overflow-x: auto;
+            padding: 10px 0;
+            margin: 10px 0;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .math-equation-container mjx-container {
+            min-width: fit-content;
+        }
+
+        /* Scroll personalizado para equações */
+        .math-equation-container::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .math-equation-container::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 3px;
+        }
+
+        .math-equation-container::-webkit-scrollbar-thumb {
+            background: #9F43BE;
+            border-radius: 3px;
+        }
+
+        .math-equation-container::-webkit-scrollbar-thumb:hover {
+            background: #8a32a9;
+        }
+
+        /* Ajustes responsivos */
+        @media (max-width: 768px) {
+            .math-equation-container {
+                padding: 8px 0;
+                margin: 8px 0;
+            }
+            
+            .resolucao p {
+                font-size: 0.95rem;
+                line-height: 1.4;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .math-equation-container {
+                padding: 6px 0;
+                margin: 6px 0;
+            }
+            
+            .resolucao p {
+                font-size: 0.9rem;
+            }
+        }
+        .figura-container-reduzida {
+            text-align: center; /* centraliza a imagem */
+            margin: 15px 0; /* espaço acima e abaixo da imagem */
+        }
+
+        .figura-container-reduzida img {
+            max-width: 85%; /* imagem ocupa a largura total no mobile */
+            height: auto; /* mantém proporção */
+            border-radius: 4px; /* opcional, suaviza bordas */
+        }
+        
+        /* ===== RESPONSIVIDADE ===== */
+        @media (max-width: 768px) {
+            .quadro-problema {
+                width: 90%;
+                font-size: 15px;
+            }
+
+            .quadro-problema p {
+                font-size: 15px;
+                line-height: 1.5;
+            }
+
+            .figura-container-reduzida img {
+                max-width: 100%; /* imagem se ajusta completamente */
+            }
+
+            .quadro-problema .resolucao {
+                padding: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .quadro-problema {
+                width: 95%;
+                border-width: 1.5px;
+            }
+
+            .quadro-problema p {
+                font-size: 14px;
+            }
+
+            .figura-container-reduzida img {
+                max-width: 100%;
+            }
+        }
+        .resolucao .item-recuado {
+            display: block;
+            padding-left: 25px !important;
+            position: relative;
+        }
+
+        .resolucao .item-recuado::before {
+            position: absolute;
+            left: 10px;   /* posição do ponto */
+            top: 0;
+            font-weight: bold;
+        }
+        /* Retângulo de fundo */
+        .background-section {
+            background-color: #015A42; /* Cor de fundo verde */
+            border-radius: 20px; /* Bordas arredondadas */
+            min-height: 450px; /* Altura mínima */
+            width: 90%; /* Largura ajustada à estrutura */
+            max-width: 800px; /* Limite máximo */
+            height: auto; /* Altura do retângulo */
+            margin: 0 auto; /* Espaçamento da seção acima e centralização */
+            position: relative; /* Define o contexto de empilhamento */
+        }
+                /* Responsividade - Ajuste para telas menores */
+        @media (max-width: 768px) {
+            .background-section {
+                width: 85%;
+                margin: 50px auto;
+                padding: 20px;
+            }
+        }
+        
+        /* Retângulo transparente (sobreposição) */
+        .transparent-section {
+            background-color: rgba(255, 255, 255, 0.822); /* Tom verde com transparência */
+            border: 2px solid #015A42; /* Borda sólida verde */
+            border-radius: 20px; /* Bordas arredondadas */
+            width: calc(100% - 40px); /* Reduz tamanho para acomodar margens */
+            height: 100%;
+            position: absolute; /* Define posicionamento relativo */
+            top: 20px;
+            left: 20px; 
+            z-index: 1; /* Garante que o retângulo fique sobre o fundo */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra opcional */
+            display: flex; /* Usamos flexbox para alinhar o conteúdo */
+            flex-direction: column; /* Alinha os elementos verticalmente */
+            justify-content: space-evenly; /* Distribui espaço uniformemente */
+            align-items: center; /* Alinha o conteúdo à esquerda */
+            text-align: center; /* Centraliza o texto */
+        }
+        
+        
+                /* Responsividade - Ajuste da largura da transparent-section para telas menores */
+        @media (max-width: 768px) {
+            .transparent-section {
+                width: 90%; /* Diminui a largura da sobreposição */
+                left: 5%; /* Ajusta o posicionamento para centralizar */
+                right: 5%; /* Garante que o elemento ocupe menos espaço na tela */
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+        }
+        /* Círculo verde */
+        .circle-green {
+            position: absolute;
+            top: -30px; /* Distância do topo */
+            left: -30px; /* Distância da esquerda */
+            background-color: #015A42; /* Cor verde */
+            border-radius: 50%; /* Para garantir que seja redondo */
+            width: 120px; /* Tamanho do círculo */
+            height: 120px; /* Tamanho do círculo */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2; /* Garantir que fique sobre o fundo */
+        }
+
+        /* Círculo branco sobre o verde */
+        .circle-white {
+            position: absolute;
+            top: -4px; /* Eleva o círculo branco para cima */
+            left: -5px; /* Centraliza o círculo branco sobre o verde */
+            background-color: white; /* Cor branca */
+            border-radius: 50%; /* Para garantir que seja redondo */
+            width: 120px; /* Tamanho do círculo branco */
+            height: 120px; /* Tamanho do círculo branco */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 3; /* Coloca o círculo branco sobre o verde */
+        }
+
+        /* Estilizando o ícone dentro do círculo branco */
+        .circle-white i {
+            font-size: 80px; /* Tamanho do ícone */
+            color: #015A42; /* Cor verde para o ícone */
+        }
+        /* Responsividade - Ajuste para telas menores */
+        @media (max-width: 768px) {
+            .circle-green, .circle-white {
+                width: 60px; /* Diminui o tamanho */
+                height: 60px; /* Diminui o tamanho */
+                top: -5px; /* Ajusta o posicionamento */
+                left: -5px; /* Ajusta o posicionamento */
+            }
+
+            .circle-white i {
+                font-size: 40px; /* Reduz o ícone */
+            }
+        }
+              /* Retângulo de fundo */
+        .background-section2 {
+            background-color: #015A42 !important;
+            border-radius: 20px !important;
+            width: 90%;
+            max-width: 800px;
+            margin: 50px auto;
+            position: relative;
+            padding: 30px; /* adiciona espaçamento interno */
+            box-sizing: border-box;
+            height: auto; /* deixa a altura fluir conforme o conteúdo */
+            min-height: unset; /* remove altura mínima fixa */
+        }
+               
+        
+                    /* Retângulo transparente */
+            .transparent-section2 {
+                background-color: rgba(255, 255, 255, 0.9);
+                border: 2px solid #015A42;
+                border-radius: 20px;
+                padding: 20px;
+                width: 100%;
+                box-sizing: border-box;
+                position: relative; /* relativo em vez de absolute */
+                z-index: 1;
+                display: flex;
+                flex-direction: column;
+                gap: 5px; /* espaço natural entre elementos */
+            }
+        
+                @media (max-width: 768px) {
+            .background-section2 {
+                width: 95%;
+                margin: 30px auto;
+                padding: 15px;
+            }
+
+            .transparent-section2 {
+                padding: 15px;
+                gap: 5px;
+            }
+        }
+        
+        /* Círculo verde */
+        .circle-green2 {
+            position: absolute;
+            top: -30px; /* Distância do topo */
+            left: -30px; /* Distância da esquerda */
+            background-color: #015A42; /* Cor verde */
+            border-radius: 50%; /* Para garantir que seja redondo */
+            width: 120px; /* Tamanho do círculo */
+            height: 120px; /* Tamanho do círculo */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2; /* Garantir que fique sobre o fundo */
+        }
+
+        /* Círculo branco sobre o verde */
+        .circle-white2 {
+            position: absolute;
+            top: -4px; /* Eleva o círculo branco para cima */
+            left: -5px; /* Centraliza o círculo branco sobre o verde */
+            background-color: white; /* Cor branca */
+            border-radius: 50%; /* Para garantir que seja redondo */
+            width: 120px; /* Tamanho do círculo branco */
+            height: 120px; /* Tamanho do círculo branco */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 3; /* Coloca o círculo branco sobre o verde */
+        }
+
+        /* Estilizando o ícone dentro do círculo branco */
+        .circle-white2 i {
+            font-size: 80px; /* Tamanho do ícone */
+            color: #015A42; /* Cor verde para o ícone */
+        }
+        /* Responsividade - Ajuste para telas menores */
+        @media (max-width: 768px) {
+            .circle-green2, .circle-white2 {
+                width: 60px; /* Diminui o tamanho */
+                height: 60px; /* Diminui o tamanho */
+                top: -5px; /* Ajusta o posicionamento */
+                left: -5px; /* Ajusta o posicionamento */
+            }
+
+            .circle-white2 i {
+                font-size: 40px; /* Reduz o ícone */
+            }
+        }
+
+        .learn-more-title {
+            color: #015A42; /* Cor verde */
+            font-size: 50px; /* Tamanho do título */
+            font-weight: lighter;
+            text-align: left;
+            font-family: 'Bebas Neue', sans-serif; /* Fonte Bebas Neue */
+            margin: -25px 0;
+            width: 80%; /* Ocupa toda a largura disponível */
+        }
+        .learn-more-paragraph {
+            font-family: 'Roboto', sans-serif; /* Fonte Roboto */
+            text-align: left;
+            font-size: 17px;
+            line-height: 1.4; /* Espaçamento entre linhas */
+            color: #000; /* Cor verde */
+            margin: 0px; /* Reduz margens */
+            width: 90%; /* Ocupa toda a largura disponível */
+            word-wrap: break-word;
+        }
+         .learn-more-link {
+            font-family: 'Roboto', sans-serif; 
+            text-align: left;
+            font-size: 17px;
+            line-height: 1.4; 
+            color: #FFF; /* cor do texto */
+            margin: 0px; 
+            width: 90%; 
+            word-wrap: break-word;
+            padding: 5px;
+            background-color: #669e87;
+            cursor: pointer; /* mostra a mãozinha ao passar o mouse */
+            text-decoration: none; /* opcional: simula link */
+            transition: background-color 0.3s, color 0.3s; /* efeito ao passar o mouse */
+        }
+
+
+        .centered-paragraph {
+            text-align: center; /* Centraliza o texto horizontalmente */
+            margin: -5px 0; /* Ajusta a margem para uniformidade */
+            font-size: 17px; /* Mantém o tamanho consistente */
+            line-height: 1.4; /* Controla o espaçamento entre linhas */
+        }
+                /* Responsividade - Ajuste para telas menores */
+        @media (max-width: 768px) {
+            .learn-more-title {
+                font-size: 35px; /* Ajusta o tamanho do título */
+                text-align: left;
+            }
+
+            .learn-more-paragraph {
+                font-size: 15px; /* Ajusta o tamanho do texto */
+                line-height: 1.4;
+                text-align: justify; /* Centraliza o texto */
+                margin: 5px 0; /* Reduz margens */
+            }
+        }
+            .outer-background {
+                background-color: #9f43be11; /* Cor de fundo para o contêiner externo */
+        }
+
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            justify-content: center;
+            align-items: center;
+            cursor: grab;
+            overflow: hidden;
+        }
+
+        .lightbox img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain; /* garante que se ajuste à tela inicialmente */
+            transition: transform 0.2s ease;
+            transform-origin: center center;
+        }
+        .lightbox-hint {
+            position: absolute;
+            bottom: 20px;
+            color: #fff;
+            font-size: 14px;
+            opacity: 0.8;
+            font-family: sans-serif;
+            text-align: center;
+            animation: fadeOut 4s forwards; /* some sozinho */
+        }
+        .zoomable {
+            cursor: zoom-in; /* ícone de lupa ao passar o mouse */
+            transition: transform 0.2s ease;
+        }
+
+        .zoomable:hover {
+            transform: scale(1.02); /* leve efeito de destaque no hover */
+        }
+        @keyframes fadeOut {
+            0% { opacity: 0.8; }
+            80% { opacity: 0.8; }
+            100% { opacity: 0; }
+        }
+                /* Animação suave */
+                @keyframes zoomIn {
+                    from { transform: scale(0.7); opacity: 0; }
+                    to { transform: scale(1); opacity: 1; }
+                }
+
+        
+
+        .play-icon {
+            display: flex; /* Flexbox para centralizar o conteúdo */
+            justify-content: center;
+            align-items: center;
+            background-color: #015A42; /* Fundo verde */
+            color: #FFF; /* Ícone branco */
+            width: 90px; /* Largura do botão */
+            height: 55px; /* Altura do botão */
+            border-radius: 13px;
+            font-size: 40px; /* Tamanho do ícone */
+            cursor: pointer; /* Cursor de clique */
+            transition: transform 0.3s ease; /* Efeito de transição */
+        }
+
+        .play-icon:hover {
+            transform: scale(1.1); /* Aumenta levemente no hover */
+        }
+                /* Responsividade - Ajuste para telas menores */
+        @media (max-width: 768px) {
+            .play-icon {
+                width: 60px; /* Diminui a largura */
+                height: 40px; /* Diminui a altura */
+                font-size: 25px; /* Diminui o tamanho do ícone */
+            }
+        }
+        /* Modal - Oculto por padrão */
+        .video-modal {
+            display: none; /* Inicialmente o modal está oculto */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8); /* Fundo escuro transparente */
+            z-index: 1000; /* Garantir que o modal fique acima de outros conteúdos */
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Conteúdo do modal (onde ficará o vídeo) */
+        .video-content {
+            position: relative;
+            background-color: #015A42;
+            border-radius: 10px;
+            padding: 20px;
+        }
+         
+        /* Responsividade - Ajustes para dispositivos móveis */
+        @media (max-width: 768px) {
+            .video-content {
+                max-width: 100%; /* Maximize a largura do modal no mobile */
+                padding: 10px;
+            }
+
+            .video-content iframe {
+                width: 100%; /* O iframe ocupará toda a largura disponível */
+                height: 56.25vw; /* Isso mantém a proporção de 16:9 */
+                max-height: 80vh; /* Evita que o vídeo ultrapasse a tela */
+                border-radius: 10px;
+            }
+        }
+
+        /* Botão de fechar */
+        .close-btn {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            font-size: 40px;
+            color: #FFF;
+            cursor: pointer;
+            transition: transform 0.2s ease, color 0.2s ease;
+        }
+        .close-btn:hover {
+            transform: scale(1.2); /* Aumenta levemente no hover */
+            color: #FF0000; /* Muda a cor para vermelho no hover */
+        }
+                /* Container */
+        .video-play-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 30px 0;
+        }
+
+        /* Botão circular */
+        .video-play-btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(145deg, #017A5A, #015A42); /* Gradiente verde */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            color: #FFF;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            font-size: 55px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        /* Efeito pulsante */
+        .video-play-btn::after {
+            content: "";
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 2px solid rgba(1,90,66,0.6);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.6; }
+            70% { transform: scale(1.3); opacity: 0; }
+            100% { transform: scale(1); opacity: 0; }
+        }
+
+        .video-play-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+        }
+
+        /* Texto abaixo */
+        .video-play-text {
+            margin-top: 10px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            color: #015A42;
+            font-weight: 600;
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .video-play-btn {
+                width: 70px;
+                height: 70px;
+                font-size: 35px;
+            }
+
+            .video-play-btn::after {
+                width: 85px;
+                height: 85px;
+            }
+
+            .video-play-text {
+                font-size: 14px;
+            }
+        }
+
+        .link-sim {
+            color: #000;              /* texto preto */
+            text-decoration: none;    /* remove o sublinhado */
+            cursor: pointer;          /* indica que é clicável */
+        }
+
+        .link-sim:hover {
+            text-decoration: underline; /* opcional — mostra sublinhado só ao passar o mouse */
+        }
+
+         /* Acordeon styles */
+        .acordeon-container {
+            margin-top: 20px;
+            width: 90%; /* Ajuste de largura */
+            max-width: 800px; /* Limite máximo */
+        }
+
+        .acordeon {
+            border-radius: 10px;
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+
+        .acordeon-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #3a95a6;
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            font-size: 17px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .acordeon-headerb {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #015A42;
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            font-size: 17px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .acordeon-headerc {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #9F43BE;
+            color: #FFF;
+            cursor: pointer;
+            padding: 15px;
+            font-size: 17px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .acordeon-headerd {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #134969; /* exemplo: laranja suave */
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            font-size: 17px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .acordeon-content {
+            display: none;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            padding-top: 0; /* Remove padding para que o header toque no conteúdo */
+            border: 2px solid #3a95a6;
+            border-radius: 0 0 10px 10px; /* Apenas canto inferior arredondado */
+        }
+
+        .acordeon-contentb {
+            display: none;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            padding-top: 0; /* Remove padding para que o header toque no conteúdo */
+            border: 2px solid #015A42;
+            border-radius: 0 0 10px 10px; /* Apenas canto inferior arredondado */
+        }
+
+        .acordeon-contentc {
+            display: none;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            padding-top: 0; /* Remove padding para que o header toque no conteúdo */
+            border: 2px solid #9F43BE;
+            border-radius: 0 0 10px 10px; /* Apenas canto inferior arredondado */
+        }
+
+        .acordeon-contentd {
+            display: none;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            padding-top: 0; 
+            border: 2px solid #134969; /* mesma cor da header para consistência */
+            border-radius: 0 0 10px 10px; 
+        }
+
+        .acordeon-content p {
+            margin: 20px auto;
+            font-size: 16px;
+        }
+        .acordeon-contentb p {
+            margin: 20px auto;
+            font-size: 16px;
+        }
+        .acordeon-contentc p {
+            margin: 20px auto;
+            font-size: 16px;
+        }
+        .acordeon-contentc h4 {
+            text-align: center;
+
+        }
+        .acordeon-contentd p {
+            margin: 20px auto;
+            font-size: 16px;
+        }
+        .tituloacordeonverde{
+            color: #015A42;
+        }
+            /* Estilo do ícone da seta */
+        .acordeon-icon {
+            font-size: 40px;
+            transition: transform 0.3s ease; /* Para rotação suave */
+        }
+            
+            /* Rotação da seta para cima */
+        .acordeon-header.active .acordeon-icon {
+            transform: rotate(180deg); /* Gira a seta para cima */
+        }
+        /* Rotação da seta para cima */
+        .acordeon-headerb.active .acordeon-icon {
+            transform: rotate(180deg); /* Gira a seta para cima */
+        }
+        /* Rotação da seta para cima */
+        .acordeon-headerc.active .acordeon-icon {
+            transform: rotate(180deg); /* Gira a seta para cima */
+        }
+                /* Ícone giratório */
+        .acordeon-headerd.active .acordeon-icon {
+            transform: rotate(180deg);
+        }
+        /* Responsividade para telas menores */
+        @media (max-width: 768px) {
+            .acordeon-header {
+                font-size: 20px; /* Reduzir tamanho do texto */
+                padding: 12px; /* Ajustar espaçamento */
+            }
+
+            .acordeon-icon {
+                font-size: 30px; /* Reduzir tamanho do ícone */
+            }
+
+            .acordeon-content {
+                font-size: 14px; /* Reduzir tamanho do texto do conteúdo */
+                padding: 10px; /* Reduzir espaçamento interno */
+            }
+
+            .acordeon-content p {
+                margin: 15px; /* Ajustar margem para menor espaçamento */
+            }
+            .acordeon-headerb {
+                font-size: 20px; /* Reduzir tamanho do texto */
+                padding: 12px; /* Ajustar espaçamento */
+            }
+
+            .acordeon-icon {
+                font-size: 30px; /* Reduzir tamanho do ícone */
+            }
+
+            .acordeon-contentb {
+                font-size: 14px; /* Reduzir tamanho do texto do conteúdo */
+                padding: 10px; /* Reduzir espaçamento interno */
+            }
+
+            .acordeon-contentb p {
+                margin: 15px; /* Ajustar margem para menor espaçamento */
+            }
+
+            .acordeon-headerc {
+                font-size: 20px; /* Reduzir tamanho do texto */
+                padding: 12px; /* Ajustar espaçamento */
+            }
+
+            .acordeon-icon {
+                font-size: 30px; /* Reduzir tamanho do ícone */
+            }
+
+            .acordeon-contentc {
+                font-size: 14px; /* Reduzir tamanho do texto do conteúdo */
+                padding: 10px; /* Reduzir espaçamento interno */
+            }
+
+            .acordeon-contentc p {
+                margin: 15px; /* Ajustar margem para menor espaçamento */
+            }
+            .acordeon-headerd {
+                font-size: 20px;
+                padding: 12px;
+            }
+
+            .acordeon-contentd {
+                font-size: 14px;
+                padding: 10px;
+            }
+
+            .acordeon-contentd p {
+                margin: 15px;
+            }
+        }
+        /* Responsividade para telas menores ainda (480px) */
+        @media (max-width: 480px) {
+            .acordeon-header {
+                font-size: 16px; /* Reduz ainda mais o tamanho do texto */
+                padding: 10px; /* Ajustar espaçamento */
+            }
+
+            .acordeon-icon {
+                font-size: 25px; /* Reduzir tamanho do ícone */
+            }
+
+            .acordeon-content {
+                font-size: 13px; /* Reduzir tamanho do texto do conteúdo */
+                padding: 8px; /* Reduzir espaçamento interno */
+            }
+
+            .acordeon-content p {
+                margin: 10px; /* Ajustar margem para menor espaçamento */
+                font-size: 19px;
+            }
+            .acordeon-headerb {
+                font-size: 16px; /* Reduz ainda mais o tamanho do texto */
+                padding: 10px; /* Ajustar espaçamento */
+            }
+
+            .acordeon-icon {
+                font-size: 25px; /* Reduzir tamanho do ícone */
+            }
+
+            .acordeon-contentb {
+                font-size: 13px; /* Reduzir tamanho do texto do conteúdo */
+                padding: 8px; /* Reduzir espaçamento interno */
+            }
+
+            .acordeon-contentb p {
+                margin: 10px; /* Ajustar margem para menor espaçamento */
+                font-size: 19px;
+            }
+
+            .acordeon-headerc {
+                font-size: 14px; /* Reduz ainda mais o tamanho do texto */
+                padding: 10px; /* Ajustar espaçamento */
+            }
+
+            .acordeon-icon {
+                font-size: 25px; /* Reduzir tamanho do ícone */
+            }
+
+            .acordeon-contentc {
+                font-size: 13px; /* Reduzir tamanho do texto do conteúdo */
+                padding: 8px; /* Reduzir espaçamento interno */
+            }
+
+            .acordeon-contentc p {
+                margin: 10px; /* Ajustar margem para menor espaçamento */
+                font-size: 19px;
+            }
+            .acordeon-headerd {
+                font-size: 16px;
+                padding: 10px;
+            }
+
+            .acordeon-contentd {
+                font-size: 13px;
+                padding: 8px;
+            }
+
+            .acordeon-contentd p {
+                margin: 10px;
+                font-size: 19px;
+            }
+        }
+            /* Acordeon styles FIM */
+
+            
+        .download-section {
+                padding: 15px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 15px;
+            }
+            .download-btn {
+                background-color: #9F43BE;
+                color: white;
+                text-decoration: none;
+                font-size: 16px;
+                padding: 10px 15px;
+                border-radius: 8px;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                transition: all 0.3s ease;
+                font-weight: bold;
+                margin-top: 80px;
+            }
+
+            .download-btn i {
+                font-size: 18px;
+            }
+
+            .download-btn:hover {
+                background-color: #7D3598;
+            }
+                /* ===== Seções de Conclusão e Referências ===== */
+        .conclusao, .referencias {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .conclusao {
+            background-color: #E2F4EB; /* fundo suave */
+        }
+
+        .referencias {
+            background-color: #FFF;
+            border-top: 3px solid #015A42;
+            border-bottom: 3px solid #015A42;
+        }
+
+        /* Títulos */
+        .titulo-conclusao, .titulo-referencias {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 50px;
+            font-weight: lighter;
+            color: #015A42;
+            margin: 10px auto 20px auto;
+            text-align: left; /* garante centralização em desktop */
+        }
+
+        /* Caixas de texto */
+        .conclusao .caixa-texto, 
+        .referencias .caixa-texto {
+            width: 100%;
+            max-width: 800px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* Parágrafos */
+        .conclusao .caixa-texto p,
+        .referencias .caixa-texto p {
+            font-family: 'Roboto', sans-serif;
+            font-size: 19px;
+            line-height: 1.6;
+            text-align: justify;
+            margin-bottom: 15px;
+        }
+
+        /* Cores de texto diferentes */
+        .conclusao .caixa-texto p {
+            color: #333;
+        }
+        .referencias .caixa-texto p {
+            color: #000;
+        }
+
+        /* Links em referências */
+        .referencias .caixa-texto a {
+            word-break: break-all;
+            color: #015A42;
+            text-decoration: underline;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .titulo-conclusao, .titulo-referencias {
+                font-size: 2rem;
+            }
+            .conclusao .caixa-texto p,
+            .referencias .caixa-texto p {
+                font-size: 1rem;
+                line-height: 1.4;
+            }
+            .conclusao .caixa-texto, 
+            .referencias .caixa-texto {
+                max-width: 95%;
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .titulo-conclusao, .titulo-referencias {
+                font-size: 1.8rem;
+            }
+            .conclusao .caixa-texto, 
+            .referencias .caixa-texto {
+                max-width: 100%;
+                padding: 10px;
+            }
+        }
+
+        /* Estilização do rodapé */
+        .footer {
+            border-top: 3px solid #015A42; /* Borda superior */
+            background-color: #FFFFFF; /* Fundo branco */
+            text-align: center; /* Centralizar texto */
+            padding: 15px 0; /* Espaçamento interno */
+            box-sizing: border-box; /* Inclui padding nas dimensões */
+        }
+
+        .footer p {
+            font-family: 'Roboto', sans-serif;
+            font-size: 18px;
+            font-weight: bold;
+            color: #015A42; /* Cor do texto */
+            margin: 0; /* Remove espaçamento externo */
+        }
+        /* Texto descritivo */
+        .footer .fonte-menor {
+            font-family: 'Roboto', sans-serif;
+            font-size: 13px;
+            color: #555; /* Cor neutra */
+            line-height: 1.5; /* Espaçamento entre linhas */
+            display: block; /* Garante quebra para nova linha */
+            margin-top: 10px; /* Espaço entre o texto e o divisor */
+        }
+                /* Divisor */
+        .footer-divider {
+            border: none; /* Remove borda padrão */
+            height: 1px; /* Altura da linha */
+            background-color: #015A42; /* Cor da linha */
+            margin: 10px auto; /* Espaçamento vertical */
+            width: 80%; /* Define a largura do divisor */
+            opacity: 0.5; /* Reduz opacidade para suavizar */
+        }
+                /* Ajustes do rodapé para mobile */
+        @media (max-width: 480px) {
+            .footer p {
+                font-size: 15px; /* Ajusta o tamanho da fonte */
+            }
+            .footer .fonte-menor {
+                font-size: 12px; /* Reduz tamanho da fonte */
+                line-height: 1.4; /* Ajusta o espaçamento */
+            }
+            .footer-divider {
+                width: 100%; /* Ajusta largura do divisor no mobile */
+            }
+        }
+        .logo-final {
+            background-color: #b9e5a92c;
+            padding: 40px 0;
+            text-align: center;
+            border-bottom: 3px solid #015A42;
+        }
+
+        .logo-final img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+        }
+        /* Nova seção com os títulos ocupando a tela inteira */
+        .ficha-titulos {
+            background-color: #fff;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .ficha-titulos h2,
+        .ficha-titulos h3 {
+            font-family: 'Bebas Neue', cursive;
+            font-weight: lighter;
+            font-size: 40px;
+            color: #0058B4;
+            margin: 10px 0;
+        }
+
+        /* Mantemos a ficha técnica como estava */
+        .ficha-tecnica {
+            background-color: #FFF;
+            padding: 60px 20px;
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+        }
+
+        .ficha-tecnica p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin: 15px auto;
+            max-width: 700px;
+        }
+
+        .ficha-tecnica strong {
+            display: block;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        .paragraforeduzido {
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+        <!-- Navbar -->
+        <div class="navbar">
+            <div class="logo">
+                <img src="https://drive.google.com/thumbnail?id=1iZTd5_tOqqVTFtrgbqdKazN1J1Yk-PuE" alt="Logo">
+            </div>
+            <div class="menu-toggle">
+                <i class="bx bx-menu"></i>
+                <i class="bx bx-x" style="display: none;"></i> <!-- Ícone de fechar menu -->
+            </div>
+            <ul>
+                <li><a href="#introducao">Introdução</a></li>
+                <li><a href="#secao1">Tópico 1</a></li>
+                <li><a href="#secao2">Tópico 2</a></li>
+                <li><a href="#secao3">Tópico 3</a></li>
+                <li><a href="#secao4">Tópico 4</a></li>
+                <li><a href="#download">Download</a></li>
+                <li><a href="#conclusao">Conclusão</a></li>
+                <li><a href="#referencias">Refs Bibliográficas</a></li>
+            </ul>
+        </div>
+        
+        
+        <!-- ESPAÇAMENTO -->
+        <section id="titulo" class="titulo-intro">
+            <h1 class="titulo-programa"></h1>
+        </section>
+        <!-- ESPAÇAMENTO -->
+        <section id="titulo" class="titulo-intro">
+            <h1 class="titulo-programa"></h1>
+        </section>
+        <!-- ESPAÇAMENTO -->
+        
+        <!-- Capa do Livro -->
+        <section id="capa-livro" class="capa-livro">
+            <div class="borda superior"></div>
+            <div class="conteudo-capa">
+                <h1 class="titulo-programa">PROGRAMA DE ATUALIZAÇÃO em fundamentos da</h1>
+                <h1 class="titulo-materia">QUÍMICA - NÍVEL 1</h1>
+                <h2 class="subtitulo-professor">Profª Monica Tais Siqueira D'Amelio Felippe</h2>
+            </div>
+            <div class="borda inferior"></div>
+        </section>
+        
+        <!-- ESPAÇAMENTO -->
+        <section id="titulo" class="titulo-intro">
+            <h1 class="titulo-programa"></h1>
+        </section>
+        <!-- ESPAÇAMENTO -->
+        <section id="titulo" class="titulo-intro">
+            <h1 class="titulo-programa"></h1>
+        </section>
+        <!-- ESPAÇAMENTO -->
+        
+        
+        <!-- Seção Introdução -->
+        <section id="introducao" class="introducao">
+            <!-- Barra Superior -->
+            <div class="barra-superior">
+                <h1 class="titulo-barra">UNIDADE 3 | DISTRIBUIÇÃO ELETRÔNICA</h1>
+            </div>
+        
+            <!-- Conteúdo -->
+            <div class="caixa-texto">
+                <div class="conteudo-centralizado">
+                    <h1 class="titulo-introducao">INTRODUÇÃO</h1>
+                    <p>
+                        Você já deve ter ouvido falar sobre camadas e níveis de energia nos átomos, mas sabia que, com o
+                        avanço da ciência, essa estrutura ficou muito mais detalhada? Com a evolução dos modelos atômicos,
+                        passamos a entender que os elétrons não ficam presos a trajetórias fixas, e sim se organizam em regiões
+                        chamadas de orbitais, onde há maior probabilidade de encontrá-los. Esse conhecimento tornou possível
+                        explicar com mais precisão o comportamento dos elementos, suas reações químicas e a estabilidade de
+                        suas estruturas.
+                    </p>
+                    <p>
+                        Neste conteúdo, vamos entender como os elétrons se distribuem ao redor do núcleo atômico, como
+                        funcionam os subníveis de energia, os orbitais, o famoso Diagrama de Pauling e os quatro números
+                        quânticos. Você vai perceber que esses conceitos ajudam a responder perguntas importantes, como por
+                        que certos átomos são mais estáveis do que outros e porque eles se ligam formando moléculas.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section class="secao1" id="secao1">
+            <div class="faixa-verde">
+                <h1 class="titulo-secao">
+                    1. ORBITAL
+                </h1>
+            </div>
+            <p>
+                Os modelos atômicos foram sendo modificados devido à evolução da ciência. O modelo atômico atual
+                prevê a distribuição eletrônica não apenas em camadas, mas em subníveis em cada camada (Both. 2018).
+            </p>
+            <br><br>
+            <div class="caixa-dupla">
+                <div class="caixa-conteudo">
+                    No modelo atômico atual foram definidas sete camadas energéticas:<br><br>
+                    <b>1-K; 2-L; 3-M; 4-N; 5-O; 6-P; 7-Q.</b><br><br>
+                    Cada camada apresenta um ou mais subníveis energéticos de acordo com o número de
+                    elétrons que suporta:<br><br>
+                    <i><b>s</b></i> (1 orbital), <i><b>p</b></i> (3 orbitais), <i><b>d</b></i> (5 orbitais), <i><b>f</b></i> (7 orbitais).<br><br>
+                    Além desses quatro subníveis, existem outros dois:<br><br>
+                    <i><b>g</b></i> e <i><b>h</b></i><br><br>
+                    nos quais ainda não foram detectados elétrons e, portanto, não são considerados.
+                </div>
+            </div>
+            <br><br>
+            <p>
+                Esse método de estudo dos elétrons considera sua energia e não sua posição. Dessa forma, definir uma
+                trajetória fixa para o elétron ou uma órbita definida não atende a essa definição. Em 1927, o físico austríaco
+                Erwin Schrödinger apresentou a ideia de orbital, definido como a região com a maior probabilidade de se
+                encontrar um elétron. A Figura 1 apresenta a diferença de órbita e orbital (Chang, 2010).
+            </p>
+            <br>
+            <!-- Título fora do container -->
+            <h3 class="titulo-figura-central"><span class="figura"><strong>Figura 1</strong>.</span> Diferença entre órbita e orbital</h3>
+            
+            <!-- Bloco de Figura (sem borda e fundo) -->
+            <section class="bloco-figura-simples tema-verde">
+                <!-- Imagem -->
+                <div class="figura-container">
+                    <img class="zoomable" src="https://res.cloudinary.com/di4ria1pf/image/upload/v1764263368/fig1_zt7eeh.png"
+                        alt="">
+                </div>
+                <br>
+                <!-- Fonte abaixo da imagem -->
+                <p class="fonte-imagem">
+                    <strong><i>Fonte</strong>: Elaborada pela autora.</i>
+                </p>
+            
+                <!-- Descrição com largura maior -->
+                <p class="descricao-figura-larga">
+                    <strong>Descrição da imagem:</strong>
+                    A imagem apresenta duas representações esquemáticas para distinguir os conceitos
+                    de órbita e orbital no modelo atômico. À esquerda, a figura mostra uma trajetória circular bem definida em
+                    preto com um ponto vermelho representando o elétron girando ao redor do núcleo, ilustrando a ideia antiga
+                    de órbita, semelhante à trajetória dos planetas. À direita, a figura exibe uma região sombreada ao redor
+                    do núcleo, simbolizando o orbital, ou seja, uma zona de alta probabilidade de encontrar o elétron, sem um
+                    percurso fixo determinado. Essa representação condiz com o modelo quântico mais atual.
+                </p>
+            </section>
+            <br>
+            <p>
+                Com esses novos conhecimentos, a localização do átomo no elétron ficou definida em três níveis:
+            </p>
+            <br>
+            <p style="text-align:center;">
+                <span style="display:inline-block; padding:8px 20px; border:2px solid #015A42; border-radius:10px; background-color: #fff;">
+                    <b>Camada (nível) → Subnível → Orbital</b>
+                </span>
+            </p>
+            <br>
+            <p>
+                No estudo da distribuição dos elétrons, os orbitais não são representados ao redor do núcleo, pois ficaria
+                difícil a representação. Desta forma, os orbitais são representados como quadrados. A Figura 2 apresenta
+                a representação dos orbitais de cada subnível.
+            </p>
+            <br>
+            <!-- Título fora do container -->
+            <h3 class="titulo-figura-central"><span class="figura"><strong>Figura 2</strong>.</span> Representação dos orbitais em cada subnível</h3>
+            
+            <!-- Bloco de Figura (sem borda e fundo) -->
+            <section class="bloco-figura-simples tema-verde">
+                <!-- Imagem -->
+                <div class="figura-container">
+                    <img class="zoomable" src="https://res.cloudinary.com/di4ria1pf/image/upload/v1764263563/fig2_fx6mfr.png"
+                        alt="">
+                </div>
+                <br>
+                <!-- Fonte abaixo da imagem -->
+                <p class="fonte-imagem">
+                    <strong><i>Fonte</strong>: Elaborada pela autora.</i>
+                </p>
+            
+                <!-- Descrição com largura maior -->
+                <p class="descricao-figura-larga">
+                    <strong>Descrição da imagem:</strong>
+                    A imagem mostra a quantidade de orbitais presentes em cada subnível de
+                    energia dos átomos. O subnível s possui um único quadrado, indicando que possui um orbital. O
+                    subnível p apresenta três quadrados lado a lado, indicando três orbitais. O subnível d exibe cinco
+                    quadrados alinhados, representando seus cinco orbitais. Por fim, o subnível f aparece com sete
+                    quadrados, correspondendo aos seus sete orbitais.
+                </p>
+            </section>
+            <br>
+            <p>
+                O cientista austríaco Wolfgang Pauli estabeleceu o Princípio da Exclusão de Pauli, o qual diz que cada orbital
+                pode ter no máximo dois elétrons com movimentação oposta. Essa movimentação de rotação dos elétrons foi
+                denominada de SPIN (Fogaça, s.d.). Considerando esse princípio, o número máximo de elétrons por orbital é:
+            </p>
+            <br>
+            <p style="text-align:center;">
+                <span style="display:inline-block; padding:20px 40px; border:2px solid #015A42; border-radius:10px; background-color: #fff;">
+                dois elétrons no orbital <i>s</i><br><br>
+                seis elétrons no orbital <i>p</i><br><br>
+                dez elétrons no orbital <i>d</i><br><br>
+                quatorze elétrons no orbital <i>f</i>
+                </span>
+            </p>
+            <br>
+            <p>
+                A representação do elétron no orbital é representada segundo a Figura 3. Repare que quando há dois
+                elétrons, eles são representados em sentidos opostos, assim como o Princípio de Exclusão.
+            </p>
+            <br>
+            <!-- Título fora do container -->
+            <h3 class="titulo-figura-central"><span class="figura"><strong>Figura 3</strong>.</span> Representação de elétrons no orbital</h3>
+            
+            <!-- Bloco de Figura (sem borda e fundo) -->
+            <section class="bloco-figura-simples tema-verde">
+                <!-- Imagem -->
+                <div class="figura-container">
+                    <img class="zoomable" src="https://res.cloudinary.com/di4ria1pf/image/upload/v1764267059/fig3_fhsmlg.png"
+                        alt="">
+                </div>
+                <br>
+                <!-- Fonte abaixo da imagem -->
+                <p class="fonte-imagem">
+                    <strong><i>Fonte</strong>: Elaborada pela autora.</i>
+                </p>
+            
+                <!-- Descrição com largura maior -->
+                <p class="descricao-figura-larga">
+                    <strong>Descrição da imagem:</strong>
+                    A imagem apresenta a forma simbólica de representar a presença de
+                    elétrons dentro de um orbital. À esquerda, observa-se um quadrado com uma única seta para baixo,
+                    indicando um elétron ocupando aquele orbital. À direita, o quadrado contém duas setas em sentidos
+                    opostos, uma para cima e outra para baixo, representando dois elétrons com spins (sentidos)
+                    opostos no mesmo orbital, conforme o princípio da exclusão de Pauli. Essas representações são
+                    essenciais para o entendimento da distribuição eletrônica nos átomos.
+                </p>
+            </section>
+            <br>
+            <p>
+                Os subníveis estão distribuídos nas camadas conforme apresentado na Tabela 1. Nesta tabela, também
+                há a quantidade máxima de elétrons que cada camada pode ter, considerando todos os subníveis.
+            </p>
+            <br>
+            <!-- Título fora do container -->
+            <h3 class="titulo-figura-central"><span class="figura"><strong>Tabela 1</strong>.</span> Distribuição dos subníveis nas camadas e número
+            máximo de elétrons</h3>
+            
+            <!-- Bloco de Figura (sem borda e fundo) -->
+            <section class="bloco-figura-simples tema-verde">
+                <!-- Imagem -->
+                <div class="figura-container">
+                    <img class="zoomable" src="https://res.cloudinary.com/di4ria1pf/image/upload/v1764267115/Tabela_1_fajox1.png"
+                        alt="">
+                </div>
+                <br>
+                <!-- Fonte abaixo da imagem -->
+                <p class="fonte-imagem">
+                    <strong><i>Fonte</strong>: Elaborada pela autora.</i>
+                </p>
+            
+                <!-- Descrição com largura maior -->
+                <p class="descricao-figura-larga">
+                    <strong>Descrição da imagem:</strong>
+                    A tabela apresenta as sete camadas eletrônicas de um átomo, nomeadas pelas letras K, L, M,
+                    N, O, P e Q, associadas aos níveis de energia de 1 a 7. Cada camada comporta um conjunto específico de subníveis,
+                    representados pelas letras s, p, d e f, cuja quantidade varia conforme o nível. A camada K, correspondente ao primeiro
+                    nível, possui apenas o subnível s e comporta no máximo dois elétrons. A camada L, segundo nível, possui os subníveis
+                    s e p, com capacidade para até oito elétrons. A camada M contém os subníveis s, p e d, totalizando dezoito elétrons. A
+                    camada N, quarta camada, inclui também o subnível f e pode acomodar até trinta e dois elétrons, número que se mantém
+                    na camada O. A camada P volta a comportar apenas os subníveis s, p e d, com dezoito elétrons, enquanto a camada Q,
+                    última e mais externa, tem apenas o subnível s, com capacidade para dois elétrons. Essa organização define a estrutura
+                    eletrônica dos átomos segundo o modelo quântico atual.
+                </p>
+            </section>
+            <br>
+            <p>
+                Para representar a camada e o subnível, escreve-se o número da camada e a letra do subnível.
+            </p>
+            <br>
+            <p style="text-align:center;">
+                <span
+                    style="display:inline-block; padding:20px 40px; border:2px solid #015A42; border-radius:10px; background-color: #fff;">
+                    <b>Exemplo 1:</b><br><br>
+                    Camada M, subnível p: <b>3p</b><br>
+                    Camada K, subnível s: <b>1s</b>
+                </span>
+            </p>
+            <br>
+        </section>
+        <section class="secao2" id="secao2">
+            <div class="faixa-verde">
+                <h1 class="titulo-secao">
+                    2. DISTRIBUIÇÃO DOS ELÉTRONS
+                </h1>
+            </div>
+            <p>
+                Os elétrons tendem a se organizar primeiramente nas camadas de menor nível energético, isto é, as mais
+                próximas do núcleo. O químico norte-americano Linus Carl Pauling desenvolveu uma estratégia que nos
+                permite seguir facilmente os níveis de energia dos subníveis (Fogaça, s.d.). Para isso, basta utilizar o
+                Diagrama de Pauling de Distribuição Eletrônica ou de Configuração Eletrônica, seguindo as setas:
+            </p>
+            <br>
+            <!-- Título fora do container -->
+            <h3 class="titulo-figura-central"><span class="figura"><strong>Figura 4</strong>.</span> Diagrama de Linus Pauling</h3>
+            
+            <!-- Bloco de Figura (sem borda e fundo) -->
+            <section class="bloco-figura-simples tema-verde">
+                <!-- Imagem -->
+                <div class="figura-container">
+                    <img class="zoomable" src="https://res.cloudinary.com/di4ria1pf/image/upload/v1764267590/fig4_b9mzth.png"
+                        alt="">
+                </div>
+                <br>
+                <!-- Fonte abaixo da imagem -->
+                <p class="fonte-imagem">
+                    <strong><i>Fonte</strong>: Elaborada pela autora.</i>
+                </p>
+            
+                <!-- Descrição com largura maior -->
+                <p class="descricao-figura-larga">
+                    <strong>Descrição da imagem:</strong>
+                    A imagem apresenta o Diagrama de Linus Pauling, utilizado para determinar a
+                    ordem crescente de preenchimento dos subníveis de energia dos elétrons em um átomo. As camadas
+                    eletrônicas estão representadas pelas letras K, L, M, N, O, P e Q. Cada camada contém subníveis indicados
+                    por letras (s, p, d e f), acompanhados do número máximo de elétrons que cada um pode comportar: 2
+                    para o subnível s, 6 para o p, 10 para o d e 14 para o f. Esses subníveis são preenchidos de acordo com
+                    sua energia, seguindo a orientação das setas vermelhas desenhadas em diagonal. A sequência completa
+                    de preenchimento, descrita por extenso, é a seguinte: primeiro subnível um-s, depois dois-s, seguido por
+                    dois-p, três-s, três-p, quatro-s, três-d, quatro-p, cinco-s, quatro-d, cinco-p, seis-s, quatro-f, cinco-d, seis-p,
+                    sete-s, cinco-f, seis-d e, por fim, sete-p. Essa ordem reflete a distribuição dos elétrons conforme o princípio
+                    da energia mínima, garantindo que ocupem primeiro os subníveis de menor energia antes de avançar para
+                    os de maior energia. O diagrama é fundamental para compreender a estrutura eletrônica dos átomos.
+                </p>
+            </section>
+            <br>
+            <p>
+                A ordem crescente de energia dos subníveis é:
+            </p>
+            <br>
+            <p style="text-align:center;">
+                <span
+                    style="display:inline-block; padding:8px 20px; border:2px solid #015A42; border-radius:10px; background-color: #fff;">
+                    \( 1s^2\ 2s^2\ 2p^6\ 3s^2\ 3p^6\ 4s^2\ 3d^{10}\ 4p^6\ 5s^2\ 4d^{10}\ 5p^6\ 6s^2\ 4f^{14}\ 5d^{10}\ 6p^6\ 7s^2\ 5f^{14}\
+                    6d^{10}\ 7p^6 \)
+                </span>
+            </p>
+            <br>
+            <p>
+                O subnível de maior nível energético é o <b><i>7p</i></b>. Repare que o subnível 4s é menos energético que o 3d.
+                Neste caso, antes de completar a camada 3, foi iniciado o preenchimento da camada 4. Isso mostra que
+                a distribuição não é geográfica, e sim energética.
+            </p>
+            <p>
+                Os expoentes de cada letra representam o número máximo de elétrons que cada subnível suporta, que
+                são preenchidos nessa sequência. Vejamos um exemplo:
+            </p>
+            <br>
+            <div class="quadro-problema">
+                <div class="topo">
+                    <p style="text-align:center;">
+                        <strong>Exemplo 2 - Distribuição eletrônica do Sódio:</strong>
+                    </p>
+                    <p style="text-align:center;">
+                        Seu número atômico é 11.
+                    </p>
+                    <p style="text-align:center;">
+                        Portanto, apresenta 11 prótons e, consequentemente, 11
+                        elétrons.
+                    </p>
+                    <p style="text-align:center;">
+                        A distribuição eletrônica fica:
+                    </p>
+                    <p style="text-align:center;">
+                        \( \large  1s^2\ 2s^2\ 2p^6\ 3s^1\ \)
+                    </p>
+                    <p style="text-align:center;">
+                        Somando os expoentes:
+                    </p>
+                    <p style="text-align:center;">
+                        2 + 2 + 6 +1 = 11 elétrons.
+                    </p>
+                    
+                    <p style="text-align:center;">
+                        São 2 elétrons na camada K, 8 elétrons na camada L, 1
+                        elétrons na camada M.
+                    </p>
+                </div>
+            </div>
+            <br>
+            
+            <div class="quadro-problema">
+                <div class="topo">
+                    <p style="text-align:center;">
+                        <strong>Exemplo 3 - Distribuição eletrônica do Manganês:</strong>
+                    </p>
+                    <p style="text-align:center;">
+                        Seu número atômico é 25.
+                    </p>
+                    <p style="text-align:center;">
+                        Portanto, apresenta 25 prótons e, consequentemente, 25 elétrons.
+                    </p>
+                    <p style="text-align:center;">
+                        A distribuição eletrônica fica:
+                    </p>
+                    <p style="text-align:center;">
+                        \( \large 1s^2\ 2s^2\ 2p^6\ 3s^2\ 3p^6\ 4s^2\ 3d^{5}\ \)
+                    </p>
+                    <p style="text-align:center;">
+                        Somando os expoentes:
+                    </p>
+                    <p style="text-align:center;">
+                        2 + 2 + 6 +2 + 6 + 2 + 5 = 25 elétrons.
+                    </p>
+            
+                    <p style="text-align:center;">
+                        São 2 elétrons na camada K, 8 elétrons na camada L, 13 elétrons na ca
+                        mada M e 2 elétrons na camada N.
+                    </p>
+                </div>
+            </div>
+            <br>
+            <p>
+                Note que para mudar de camada, ela não precisa estar totalmente preenchida, uma vez que a energia dos
+                subníveis não é crescente por camada.
+            </p>
+            <p>
+                E se tivermos um íon? Como será a distribuição? Assista o vídeo a seguir para entender esse processo.
+            </p>
+            <br>
+            <div class="video-play-wrapper">
+                <div class="video-play-btn" data-video="https://drive.google.com/file/d/1ScJGp0ewWJc-0GPa7FJy8jR9AaVWzLg6/preview"
+                    onclick="openVideoModal(this)">
+                    <i class='bx bx-play'></i>
+                </div>
+                <div class="video-play-text">Clique para assistir</div>
+            </div>
+            
+            </div>
+            <!-- Modal com o vídeo -->
+            <div id="videoModal" class="video-modal" onclick="closeVideoModal()">
+                <div class="video-content" onclick="event.stopPropagation()">
+                    <i class="bx bxs-x-circle close-btn" onclick="closeVideoModal()"></i>
+                    <iframe id="videoIframe" width="800" height="450" src="" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+            <br>
+            <div class="faixa-verde">
+                <h1 class="titulo-secao" style="font-size: 22px !important;">
+                    2.1 DISTRIBUIÇÃO DOS ELÉTRONS NOS ORBITAIS
+                </h1>
+            </div>
+            <p>
+                Vimos como os elétrons são distribuídos nas camadas em função dos subníveis. Mas como eles são
+                distribuídos nos orbitais? Nos Exemplos 2 e 3, o último orbital não foi totalmente preenchido. Para essa
+                distribuição existe a <i>Regra de Hund</i>, que diz que os elétrons ocupam primeiro os orbitais vazios e depois
+                aqueles com um átomo (Kotz, 2023).
+            </p>
+            <p>
+                Considere a distribuição do átomo do Manganês, realizada no Exemplo 3:
+            </p>
+            <br>
+            <p style="text-align:center;">
+                <span
+                    style="display:inline-block; padding:20px 20px; border:2px solid #015A42; border-radius:10px; background-color: #fff;">
+                    \( 1s^2\ 2s^2\ 2p^6\ 3s^2\ 3p^6\ 4s^2\ 3d^{5}\ \)
+                </span>
+            </p>
+            <br>
+            <p>
+                A distribuição de elétrons nos orbitais é:
+            </p>
+            <br>
+            <!-- Título fora do container -->
+            <h3 class="titulo-figura-central"><span class="figura"><strong>Figura 5</strong>.</span> Distribuição eletrônica nos orbitais</h3>
+            
+            <!-- Bloco de Figura (sem borda e fundo) -->
+            <section class="bloco-figura-simples tema-verde">
+                <!-- Imagem -->
+                <div class="figura-container">
+                    <img class="zoomable" src="https://res.cloudinary.com/di4ria1pf/image/upload/v1764273683/fig5_aisope.png"
+                        alt="">
+                </div>
+                <br>
+                <!-- Fonte abaixo da imagem -->
+                <p class="fonte-imagem">
+                    <strong><i>Fonte</strong>: Elaborada pela autora.</i>
+                </p>
+            
+                <!-- Descrição com largura maior -->
+                <p class="descricao-figura-larga">
+                    <strong>Descrição da imagem:</strong>
+                    A imagem representa a distribuição eletrônica de um elemento químico com vinte e cinco
+                    elétrons, seguindo a ordem dos subníveis de energia de acordo com o diagrama de Linus Pauling. A configuração
+                    exibida por extenso é: um-s dois, dois-s dois, dois-p seis, três-s dois, três-p seis, quatro-s dois e três-d cinco. Cada
+                    quadrado indica um orbital, e as setas representam os elétrons com seus respectivos spins. Nos subníveis com mais
+                    de um orbital, como o p e o d, os elétrons são distribuídos de maneira a ocupar primeiro os orbitais individualmente,
+                    com spins paralelos, respeitando a regra de Hund. Essa representação evidencia como os elétrons se organizam
+                    nos orbitais atômicos, obedecendo aos princípios da mecânica quântica.
+                </p>
+            </section>
+            <br>
+            <p>
+                Observe que a camada mais externa (\( 4s^2\ \)) não é a camada mais energética (\( 3d^5\ \)). A camada mais
+                afastada do núcleo, não necessariamente a mais energética, é denominada de CAMADA DE VALÊNCIA.
+                No caso do Manganês, a Camada de Valência é a 4 (N).
+            </p>
+            <p>
+                Pela <b>Regra do Octeto</b>, a camada de valência de um átomo, para ser estável, deve ter 8 elétrons.
+            </p>
+            </section>
+            
+            <section class="secao1" id="secao3">
+                <div class="faixa-verde">
+                    <h1 class="titulo-secao">
+                        3. OS ORBITAIS E OS NÚMEROS QUÂNTICOS
+                    </h1>
+                </div>
+
+                <p>
+                    No modelo atômico atual, são utilizados os números quânticos para representar e identificar a localização
+                    mais provável do elétron no átomo: camada, subnível, orbital e sentido. São quatro os números quânticos e
+                    são denominados de: <b>principal</b>, <b>secundário</b>, <b>magnético</b> e <b>spin</b>. Normalmente, representam-se os números
+                    quânticos para o orbital mais energético, isso porque, para que um elétron esteja ali distribuído, todos os
+                    orbitais antes dele devem ter sido preenchidos (Chang, 2010). Clique nos botões para conhecê-los:
+                </p>
+                <br>
+                <!-- Acordeons -->
+                <div class="acordeon-container">
+                    <!-- Primeiro acordeon -->
+                    <div class="acordeon">
+                        <div class="acordeon-headerc">
+                            NÚMERO QUÂNTICO PRINCIPAL
+                            <i class="bx bx-chevron-down acordeon-icon"></i>
+                        </div>
+                        <div class="acordeon-contentc">
+                            <p>
+                                É aquele que define em qual camada está o elétron, e é denominado de N. Como ele
+                                representa as sete camadas que variam de K a Q, o número quântico N varia de 1 a 7.
+                            </p>
+                            <div class="figura-container-reduzida">
+                                <img class="zoomable"
+                                    src="https://res.cloudinary.com/di4ria1pf/image/upload/v1764345181/Tabela_sn1_d9uf2v.png" alt="">
+                            </div>
+                            <p>
+                                Ele é conhecido como principal, pois identifica o nível básico de energia em que um elétron
+                                se encontra. Como as camadas se afastam do núcleo, quanto maior o número quântico
+                                principal, maior a energia do elétron, assim como será maior o tamanho do orbital.
+                            </p>
+                        </div>
+                    </div>
+                
+                    <!-- Segundo acordeon -->
+                    <div class="acordeon">
+                        <div class="acordeon-headerc">
+                            NÚMERO QUÂNTICO SECUNDÁRIO OU AZIMUTAL
+                            <i class="bx bx-chevron-down acordeon-icon"></i>
+                        </div>
+                        <div class="acordeon-contentc">
+                            <p>
+                                Esse número, representado por 𝓁, indica a possível energia do elétron dentro de uma
+                                camada. Ao ser comparado em uma mesma camada, quanto maior o valor de 𝓁, maior a
+                                energia do elétron. Resumindo, ele apresenta o subnível em que o elétron se encontra.
+                                Ele varia de 0 a 3, de acordo com o orbital:
+                            </p>
+                            <div class="figura-container-reduzida">
+                                <img class="zoomable" src="https://res.cloudinary.com/di4ria1pf/image/upload/v1764345328/Tabela_sn2_ejijaq.png"
+                                    alt="">
+                            </div>
+                        </div>
+                    </div>
+                
+                    <!-- terceiro acordeon -->
+                    <div class="acordeon">
+                        <div class="acordeon-headerc">
+                            NÚMERO QUÂNTICO MAGNÉTICO
+                            <i class="bx bx-chevron-down acordeon-icon"></i>
+                        </div>
+                        <div class="acordeon-contentc">
+                            <p>
+                                O número quântico magnético, representado por <i>m</i>, indica em qual orbital se encontra o
+                                elétron. Os orbitais são numerados da seguinte maneira:
+                            </p>
+                            <div class="figura-container-reduzida">
+                                <img class="zoomable" src="https://res.cloudinary.com/di4ria1pf/image/upload/v1764345366/Tabela_sn3_diclwj.png"
+                                    alt="">
+                            </div>
+                            <p>
+                                A distribuição dos elétrons nos orbitais, inicia-se do menor para o maior número. Pela
+                                Regra de Hund, cada orbital é preenchido com um elétron. Depois que todos os orbi
+                                tais forem preenchidos, volta para o primeiro, preenchendo novamente.
+                            </p>
+                            <p>
+                                Exemplo 4: Faça a distribuição dos 4 elétrons do subnível p no orbital:
+                            </p>
+                            <p>
+                                Primeiro preenchem-se todos os orbitais com 1 elétron:
+                            </p>
+                            <div class="figura-container-reduzida">
+                                <img class="zoomable" src="https://res.cloudinary.com/di4ria1pf/image/upload/v1764345413/fig_sn1_lujh3z.png"
+                                    alt="">
+                            </div>
+                            <p>
+                                Mas ainda falta 1, então preenche-se novamente o primeiro:
+                            </p>
+                            <div class="figura-container-reduzida">
+                                <img class="zoomable" src="https://res.cloudinary.com/di4ria1pf/image/upload/v1764345421/fig_sn2_xzwqjg.png" alt="">
+                            </div>
+                            <p>
+                                A indicação do orbital é onde o último elétron foi distribuído.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Quarto acordeon -->
+                    <div class="acordeon">
+                        <div class="acordeon-headerc">
+                            NÚMERO QUÂNTICO SPIN
+                            <i class="bx bx-chevron-down acordeon-icon"></i>
+                        </div>
+                        <div class="acordeon-contentc">
+                            <p>
+                                O número <i>spin</i> indica qual o sentido da trajetória do elétron. Como existem até dois
+                                elétrons por orbital, eles precisam se deslocar em trajetórias contrárias para gerar
+                                uma força de atração magnética e manter os dois no mesmo orbital. Caso fossem
+                                paralelas, geraria uma força de repulsão entre eles. E o número <i>spin</i>, representado
+                                por <i>s</i> ou <i>ms</i>, indica qual o sentido da trajetória. Os únicos dois valores de spin são
+                                +1/2 e -1/2. Considera-se como valor negativo a representação para o primeiro elé
+                                tron que entra no orbital.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            <br>
+            <p>
+                Assista o vídeo com um exemplo prático de distribuição dos elétrons e determinação dos números quânticos
+                do último elétron distribuído.
+            </p>
+            <br>
+            <div class="video-play-wrapper">
+                <div class="video-play-btn" data-video="https://drive.google.com/file/d/1X7LL1fq7uzHHlvTcZ_1xauXny23o8bVd/preview" onclick="openVideoModal(this)">
+                    <i class='bx bx-play'></i>
+                </div>
+                <div class="video-play-text">Clique para assistir</div>
+            </div>
+            
+            </div>
+            <!-- Modal com o vídeo -->
+            <div id="videoModal" class="video-modal" onclick="closeVideoModal()">
+                <div class="video-content" onclick="event.stopPropagation()">
+                    <i class="bx bxs-x-circle close-btn" onclick="closeVideoModal()"></i>
+                    <iframe id="videoIframe" width="800" height="450" src="" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+            <br><br>
+            <div class="caixa-dupla">
+                <div class="caixa-conteudo">
+                    Como os números quânticos representam o local de maior probabilidade de en
+                    contrar um elétron, nenhum elétron no MESMO átomo pode ter os quatro números
+                    quânticos iguais a outro elétron do mesmo átomo. Isso é o que diz o <b>Princípio da
+                    exclusão de Pauli.</b>
+                </div>
+            </div>
+            <br><br>
+            <p>
+                A representação do nível energético de um elétron fica:
+            </p>
+            <p style="text-align: center;">\( n l^{\,e} \)</p>
+            <p>
+                Onde n representa a camada, 𝓁 o orbital, e <i>e</i> o número de elétrons. O valor de m e s são indicados fora
+                da fórmula.
+            </p>
+            <br>
+            
+            <div class="quadro-problema">
+                <div class="topo">
+                    <p style="text-align:center;">
+                        <strong>Exemplo 5: Qual é a representação quântica do último elétron do átomo
+                            \(\mathit{Li}\,( \mathit{Z} = 3 )\)?
+                        </strong>
+                    </p>
+                    <p style="text-align:center;">
+                        O lítio apresenta 3 prótons e, portanto, 3 elétrons. Para saber sua representação quân
+                        tica, deve-se começar pela distribuição eletrônica:
+                    </p>
+                    <p style="text-align:center;">
+                        \( \large 1s^2\ 2s^1\ \)
+                    </p>
+                    <p style="text-align:center;">
+                        Somando os expoentes (2 + 1 = 3) tem-se o número de elétrons.
+                    </p>
+                    <p style="text-align:center;">
+                        O último elétron distribuído está na camada 2 (L), subnível s (ℓ = 0).
+                    </p>
+                    <p style="text-align:center;">
+                        Para os demais, é preciso desenhar o quadradinho que representa o orbital.
+                    </p>
+                    <p style="text-align:center;">
+                        Como é subnível s, só tem 1.
+                    </p>
+                    <p style="text-align:center;">
+                        E como só tem 1 elétron:
+                    </p>
+                    <div class="figura-container-reduzida">
+                        <img class="zoomable" src="https://res.cloudinary.com/di4ria1pf/image/upload/v1764346048/fig_sn3_yqraqn.png" alt="">
+                    </div>
+                    <p style="text-align:center;">
+                        Assim, sua representação é:
+                    </p>
+                    <p style="text-align:center;">
+                        \(
+                        \begin{aligned}
+                        \mathit{n} &= 2 \\[4pt]
+                        \mathit{\ell} &= 0 \\[4pt]
+                        \mathit{m} &= 0 \\[4pt]
+                        \mathit{s} &= -{1}/{2}
+                        \end{aligned}
+                        \)
+                    </p>
+                </div>
+            </div>
+            </section>
+            <section class="secao2" id="secao4">
+                <div class="faixa-verde">
+                    <h1 class="titulo-secao">
+                        4. ATIVIDADE COMENTADA
+                    </h1>
+                </div>
+                <br>
+                <!-- Aplicando a correção nos cálculos problemáticos -->
+                <div class="quadro-problema">
+                    <div class="topo">
+                        <p><strong>1.</strong>
+                            Faça a distribuição eletrônica dos seguintes elementos químicos:
+                        </p>
+                        <p>a) \(\displaystyle {}^{12}_{6}\mathrm{C}\)</p>
+                        <p>b) \(\displaystyle {}^{59}_{27}\mathrm{Co}\)</p>
+                        <p>c) \(\displaystyle {}^{200}_{80}\mathrm{Hg}\)</p>
+                        
+                    </div>
+                    <div class="resolucao">
+                        <p><strong>Resolução:</strong></p>
+                        <p>
+                            a) O número atômico do carbono é 6, o que significa que ele possui 6 prótons e, portanto, 6 elétrons em
+                            seu estado fundamental (neutro). A distribuição segue a ordem crescente de energia dos subníveis.
+                        </p>
+                        <p>Distribuição eletrônica:</p>
+                        
+                        <p style="text-align:center;">
+                            \( \mathrm{C} \to e = 6 \to 1s^{2}\,2s^{2}\,2p^{2} \)
+                        </p>
+                        <p>
+                            b) O cobalto possui número atômico 27. Assim, em seu estado neutro, também possui 27 elétrons. A
+                            distribuição deve respeitar a sequência energética dos subníveis, segundo o diagrama de Linus Pauling.
+                        </p>
+                        <p>
+                            Distribuição eletrônica:
+                        </p>
+                        <p style="text-align:center;">
+                            $$
+                            {}^{59}_{27}\mathrm{Co} \;\to\; e = 27 \;\to\;
+                            1s^{2}\; 2s^{2}\; 2p^{6}\; 3s^{2}\; 3p^{6}\; 4s^{2}\; 3d^{7}
+                            $$
+                        </p>
+                        <p>
+                            c) O mercúrio tem número atômico 80, o que corresponde a 80 elétrons. Por ser um elemento de número
+                            atômico elevado, sua distribuição inclui o subnível 4f, que aparece após o 6s.
+                        </p>
+                        <p>
+                            Distribuição eletrônica:
+                        </p>
+                        <p style="text-align:center;">
+                            $$
+                            {}^{200}_{80}\mathrm{Hg} \;\to\; e = 80 \;\to\;
+                            1s^{2}\; 2s^{2}\; 2p^{6}\; 3s^{2}\; 3p^{6}\;
+                            4s^{2}\; 3d^{10}\; 4p^{6}\; 5s^{2}\; 4d^{10}\; 5p
+                            $$
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="quadro-problema">
+                    <div class="topo">
+                        <p>
+                            <strong>2.</strong>
+                            Qual a camada de valência do Boro \(Z = 5\)?
+                        </p>
+                    </div>
+                    <div class="resolucao">
+                        <p><strong>Resolução:</strong>
+                            A camada de valência é a última camada eletrônica ocupada por elétrons, ou seja, a mais
+                            externa em relação ao núcleo do átomo. Para identificá-la, é necessário fazer a distribuição eletrônica do
+                            elemento com base em seu número atômico.
+                        </p>
+                        <p>
+                            O boro possui número atômico 5, o que indica que ele tem 5 elétrons em seu estado fundamental.
+                        </p>
+                        <p>
+                            Fazendo a distribuição eletrônica:
+                        </p>
+                        <p style="text-align:center;">
+                            $$
+                            {}_{5}\mathrm{B} \;\to\; e = 5 \;\to\; 1s^{2}\; 2s^{2}\; 2p^{1}
+                            $$
+                        </p>
+                        <p>
+                            A camada mais externa que aparece nessa distribuição é a segunda camada (nível 2), representada pela
+                            letra L.
+                        </p>
+                        <p><b>Resposta:</b></p>
+                        <p>
+                            A camada de valência do boro é a camada L (nível 2), e o subnível mais energético ocupado é o subnível p.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="quadro-problema">
+                    <div class="topo">
+                        <p>
+                            <strong>3.</strong> Qual o número atômico de um átomo cuja camada mais energética é \(5p^{4}\):
+                        </p>
+                    </div>
+                    <div class="resolucao">
+                        <p><strong>Resolução:</strong>
+                            A notação \(5p^{4}\) indica que o último subnível ocupado é o 5p, com 4 elétrons. Para descobrir o
+                            número atômico (Z), é necessário realizar a distribuição eletrônica completa até esse ponto e somar todos
+                            os elétrons, pois para um átomo neutro, o número de elétrons é igual ao número atômico.
+                        </p>
+                        
+                        <p>
+                            Distribuindo até o subnível \(5p^{4}\):
+                        </p>
+                        
+                        <p style="text-align:center;">
+                            $$
+                            1s^{2}\; 2s^{2}\; 2p^{6}\; 3s^{2}\; 3p^{6}\;
+                            4s^{2}\; 3d^{10}\; 4p^{6}\; 5s^{2}\; 4d^{10}\; 5p^{4}
+                            $$
+                        </p>
+                        <br>
+                        <p>
+                            Agora somamos os expoentes (quantidade de elétrons em cada subnível):
+                        </p>
+                        <p>
+                            $$
+                            Z = e = 2 + 2 + 6 + 2 + 6 + 2 + 10 + 6 + 2 + 10 + 4 = 52
+                            $$
+                        </p>
+                        <br>
+                        <p>
+                            <b>Resposta final:</b> O número atômico desse átomo é 52.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="quadro-problema">
+                    <div class="topo">
+                        <p>
+                            <strong>4.</strong> Faça a distribuição eletrônica e indicação do conjunto dos números quânticos da camada de valência
+                            do Ferro \(Z = 26\).
+                        </p>
+                    </div>
+                    <div class="resolucao">
+                        <p><strong>Resolução:</strong>
+                            Para identificar a camada de valência de um elemento, é necessário primeiro realizar a
+                            distribuição eletrônica. O número atômico 26 corresponde ao Ferro (Fe), que possui 26 elétrons.
+                        </p>
+                        <p>
+                            A distribuição eletrônica completa do Ferro é:
+                        </p>
+                        
+                        <p style="text-align:center;">
+                            $$
+                            1s^{2}\; 2s^{2}\; 2p^{6}\; 3s^{2}\; 3p^{6}\;
+                            4s^{2}\; 3d^{6}\;
+                            $$
+                        </p>
+                        
+                        <p>
+                            A camada de valência é a mais externa (nível de energia mais alto), que neste caso é:
+                        </p>
+                        <p style="text-align: center;">
+                            $$
+                            4s^{2}\; 
+                            $$
+                        </p>
+                        <p>
+                            Nesse subnível, os dois elétrons ocupam o único orbital s, com spins opostos.
+                        </p>
+                        <div class="figura-container-reduzida">
+                            <img class="zoomable" src="https://res.cloudinary.com/di4ria1pf/image/upload/v1764348253/fig_sn4_yhc8zz.png" alt="">
+                        </div>
+                        <p>
+                            Os números quânticos são:
+                        </p>
+                        <p class="item-recuado">
+                            <b>▸ n = 6</b> (nível principal)
+                        </p>
+                        
+                        <p class="item-recuado">
+                            <b>▸ 𝓁 = 0</b> (subnível s)
+                        </p>
+                        
+                        <p class="item-recuado">
+                            <b>▸ m = 0</b> (único valor possível para l = 0)
+                        </p>
+                        <p class="item-recuado">
+                           <b>▸ s = +½</b> (um dos dois possíveis valores de spin)
+                        </p>
+                    </div>
+                </div>
+
+                <div class="quadro-problema">
+                    <div class="topo">
+                        <p>
+                            <strong>5.</strong> Indique o número atômico do elétron cujo conjunto de números quânticos do último subnível da camada
+                            de valência é:
+                        </p>
+                        <p class="item-recuado">
+                            <b>▸ n = 6</b>
+                        </p>
+                        
+                        <p class="item-recuado">
+                            <b>▸ 𝓁 = 1</b> 
+                        </p>
+                        
+                        <p class="item-recuado">
+                            <b>▸ m = -1</b> 
+                        </p>
+                        <p class="item-recuado">
+                            <b>▸ s = +½</b> (completo)
+                        </p>
+                    </div>
+                    <div class="resolucao">
+                        <p><strong>Resolução:</strong>
+                            Precisamos identificar onde esse elétron está, com base no conjunto de números quânticos.
+                        </p>
+                        <p>
+                            n = 6 → indica que o elétron está na sexta camada.
+                        </p>
+                        <p>
+                            ℓ = 1 → subnível p, que possui 3 orbitais (m = -1, 0 e +1).
+                        </p>
+                        <p>
+                            m = -1 → o orbital mais à esquerda do subnível p.
+                        </p>
+                        <p>
+                            s = +½ → spin positivo (significa que já havia um elétron com spin negativo no mesmo orbital).
+                        </p>
+                        <br>
+                        <p>
+                            Para que o elétron de número quântico m = -1 e s = +½ fosse inserido, os orbitais m = -1, 0 e +1 precisaram
+                            ser preenchidos parcialmente com os spins negativos. Assim, o quarto elétron do subnível 6p é o que tem
+                            essas características:
+                        </p>
+                        <div class="figura-container-reduzida">
+                            <img class="zoomable" src="https://res.cloudinary.com/di4ria1pf/image/upload/v1764351274/fig_sn5_pueqjt.png" alt="">
+                        </div>
+                        <p>
+                            Distribuição eletrônica até esse ponto:
+                        </p>
+
+                        <p style="text-align:center;">
+                            $$
+                            1s^{2}\; 2s^{2}\; 2p^{6}\; 3s^{2}\; 3p^{6}\; 4s^{2}\; 3d^{10}\;
+                            4p^{6}\; 5s^{2}\; 4d^{10}\; 5p^{6}\; 6s^{2}\; 4f^{14}\; 5d^{10}\; 6p^{4}
+                            $$
+                        </p>
+                
+                        <p>
+                            E então somam-se os elétrons:
+                        </p>
+                        <p>
+                            $$
+                            Z = e = 2 + 2 + 6 + 2 + 6 + 2 + 10 + 6 + 2 + 10 + 6 + 2 + 14 + 10 + 4 = 84
+                            $$
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <!-- Seção Conclusão -->
+            <section id="conclusao" class="conclusao">
+                <!-- Conteúdo -->
+                <div class="conteudo-conclusao">
+                    <div class="caixa-texto">
+                        <h1 class="titulo-conclusao">CONCLUSÃO</h1>
+                        <p>
+                            Compreender os orbitais, os subníveis e os números quânticos é essencial para interpretar o modelo
+                            atômico atual e aplicar esse conhecimento em diferentes contextos da Química. Ao saber como os elétrons
+                            se distribuem e quais regras seguem, como o Princípio da Exclusão de Pauli e a Regra de Hund, você
+                            passa a ter uma base sólida para entender ligações químicas, reações, e até propriedades periódicas dos
+                            elementos.
+                        </p>
+                        <p>
+                            Agora que você já conhece a estrutura das camadas, a representação dos orbitais e o significado de
+                            cada número quântico, é possível ler uma configuração eletrônica e extrair dela informações úteis sobre
+                            um átomo. Com isso, seu olhar sobre a Química se torna mais técnico e preciso, ajudando a construir
+                            raciocínios mais claros em temas que vão muito além da sala de aula.
+                        </p>
+            
+                    </div>
+                </div>
+                <div id="download" class="download-section">
+                    <a href="https://drive.google.com/uc?export=download&id=1FbiZzDlEdoKmEma6oEPWd4fkopv2Es4l" class="download-btn">
+                        Baixar PDF <i class="fas fa-download"></i> <!-- Ícone de download -->
+                    </a>
+                </div>
+            </section>
+            <!-- Seção Referências -->
+            <section id="referencias" class="referencias">
+                <!-- Conteúdo -->
+                <div class="conteudo-referencias">
+                    <div class="caixa-texto">
+                        <h1 class="titulo-referencias">REFERÊNCIAS</h1>
+            
+                        <p>BOTH, Josemere. <strong>Química geral e inorgânica.</strong> Porto Alegre: SAGAH, 2018.
+                            E-book. p.129. ISBN 9788595026803. Disponível na Minha Biblioteca.
+                            Acesso em: 18 jul. 2025.
+                        </p>
+            
+                        <p>FOGAÇA, J. R. V. <strong>Distribuição elétrica de íons</strong>. Brasil Escola.
+                            [S. l.]: UOL Educação, [s. d.]. Disponível em:
+                            <a href="https://brasilescola.uol.com.br/quimica/distribuicao-eletronica-ions.htm" target="_blank">
+                                https://brasilescola.uol.com.br/quimica/distribuicao-eletronica-ions.htm
+                            </a>.
+                            Acesso em: 31 mar. 2021.
+                        </p>
+            
+                        <p>CHANG, Raymond. <strong>Química geral.</strong> 4. ed. Porto Alegre: ArtMed, 2010.
+                            E-book. p.219. ISBN 9788563308177. Disponível na Minha Biblioteca.
+                            Acesso em: 18 jul. 2025.
+                        </p>
+            
+                        <p>KOTZ, John C.; TREICHEL, Paul M.; TOWNSEND, John R.; et al.
+                            <strong>Química Geral e Reações Químicas.</strong> v.1. 4. ed. Porto Alegre: +A Educação -
+                            Cengage Learning Brasil, 2023. E-book. p.279. ISBN 9786555584516.
+                            Disponível na Minha Biblioteca. Acesso em: 18 jul. 2025.
+                        </p>
+            
+                    </div>
+                </div>
+            </section>
+            <!-- Seção com os créditos e ficha técnica -->
+            <section class="ficha-tecnica">
+                <p>CASA NOSSA SENHORA DA PAZ – AÇÃO SOCIAL FRANCISCANA, PROVÍNCIA FRANCISCANA DA <br>
+                    IMACULADA CONCEIÇÃO DO BRASIL – ORDEM DOS FRADES MENORES</p>
+                <br>
+                <p><strong>GESTOR DO CENTRO DE INOVAÇÃO E SOLUÇÕES EDUCACIONAIS - CISE</strong>
+                    Franklin Portela Correia</p>
+            
+                <p><strong>COORDENADORA DO PROGRAMA DE ATUALIZAÇÃO</strong>
+                    Flávia Cristina Franco de Lima Rosa</p>
+            
+                <p><strong>SUPERVISORA EDUCACIONAL</strong>
+                    Juliane Cristine Batista</p>
+            
+                <p><strong>DESIGNER INSTRUCIONAL</strong>
+                    Ana Angelica Miranda Ramos</p>
+            
+                <p><strong>PROJETO GRÁFICO</strong>
+                    Andréa Calegari<br>
+                    Lucas Ichimaru Testa</p>
+            
+                <p><strong>DIAGRAMADORES</strong>
+                    Andréa Calegari<br>
+                    Lucas Ichimaru Testa</p>
+            
+                <p><strong>DESENVOLVEDOR</strong>
+                    Pedro Vinicius Pires de Oliveira Dias</p>
+            
+                <p><strong>PRODUTOR AUDIOVISUAL</strong>
+                    Cassio Martins de Carvalho</p>
+            
+                <p><strong>EDIÇÃO DE VÍDEOS</strong>
+                    Diogo Lefort Silva<br>
+                    Rafael da Silva Oliveira<br>
+                    Hugo Henrique Ferreira da Silva</p>
+            
+                <br><br>
+                <p><span class="paragraforeduzido">
+                        © 2026 Universidade São Francisco<br>
+                        Avenida São Francisco de Assis, 218<br>
+                        CEP 12916-900 – Bragança Paulista/SP
+                </p></span>
+            </section>
+            <footer class="footer">
+                <p>Copyright © de Universidade São Francisco</p>
+                <hr class="footer-divider">
+                <span class="fonte-menor">Todos os direitos reservados. Este ebook ou
+                    qualquer parte dele não pode ser reproduzido ou usado em quaisquer formas (eletrônico,
+                    gravação, fotocópia, distribuição pela Internet ou outros) sem autorização
+                    expressa, por escrito, da <strong>Universidade São Francisco.</strong></span>
+            </footer>
+
+
+        <script>
+
+            // Navbar
+                document.querySelector('.menu-toggle').addEventListener('click', () => {
+                    const menu = document.querySelector('.navbar ul');
+                    const icons = document.querySelectorAll('.menu-toggle i'); // Seleciona ambos os ícones
+
+                    menu.classList.toggle('show'); // Alterna a visibilidade do menu
+
+                    // Alterna entre o ícone de abrir (menu) e o ícone de fechar (x)
+                    icons[0].style.display = icons[0].style.display === 'none' ? 'block' : 'none'; // Mostra ou esconde o ícone de menu
+                    icons[1].style.display = icons[1].style.display === 'none' ? 'block' : 'none'; // Mostra ou esconde o ícone de fechar
+                });
+                // Fechar o menu ao clicar em um link
+                const links = document.querySelectorAll('.navbar ul li a');
+                links.forEach(link => {
+                    link.addEventListener('click', () => {
+                        const menu = document.querySelector('.navbar ul');
+                        const icons = document.querySelectorAll('.menu-toggle i');
+
+                        // Fecha o menu ao clicar no link
+                        menu.classList.remove('show');
+                        icons[0].style.display = 'block'; // Exibe o ícone de menu
+                        icons[1].style.display = 'none'; // Esconde o ícone de fechar
+                    });
+                });
+                // Captura o elemento navbar
+                const navbar = document.querySelector('.navbar');
+
+                // Função que altera a opacidade da navbar
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 50) { // Quando o scroll for maior que 50px
+                        navbar.style.backgroundColor = 'rgba(159, 67, 190, 0.8)'; // Opacidade 80%
+                    } else {
+                        navbar.style.backgroundColor = '#9F43BE'; // Cor original sem transparência
+                    }
+                });
+
+                function abrirModal(src) {
+                    document.getElementById('imagem-ampliada').src = src;
+                    document.getElementById('modal-imagem').classList.add('ativo');
+                    atualizarContador();
+                    atualizarPontos();
+                }
+
+                function fecharModal() {
+                    document.getElementById('modal-imagem').classList.remove('ativo');
+                }
+
+                function navegarModal(direcao) {
+                    indiceModal = (indiceModal + direcao + imagensModal.length) % imagensModal.length;
+                    document.getElementById('imagem-ampliada').src = imagensModal[indiceModal];
+                    atualizarContador();
+                    atualizarPontos();
+                }
+
+                function atualizarContador() {
+                    document.getElementById('contador-modal').textContent = `${indiceModal + 1} / ${imagensModal.length}`;
+                }
+
+                function atualizarPontos() {
+                    const container = document.getElementById('pontos-modal');
+                    container.innerHTML = '';
+                    imagensModal.forEach((_, i) => {
+                        const ponto = document.createElement('span');
+                        if (i === indiceModal) ponto.classList.add('ativo');
+                        ponto.addEventListener('click', () => {
+                            indiceModal = i;
+                            document.getElementById('imagem-ampliada').src = imagensModal[i];
+                            atualizarContador();
+                            atualizarPontos();
+                        });
+                        container.appendChild(ponto);
+                    });
+                }
+
+                // Cria o container lightbox
+                const lightbox = document.createElement("div");
+                lightbox.classList.add("lightbox");
+                document.body.appendChild(lightbox);
+
+                let scale = 1; // nível de zoom
+                let isDragging = false;
+                let startX, startY, translateX = 0, translateY = 0;
+
+                document.querySelectorAll(".zoomable").forEach(img => {
+                    img.addEventListener("click", () => {
+                        const imgClone = document.createElement("img");
+                        imgClone.src = img.src;
+                        imgClone.alt = img.alt;
+                        imgClone.style.objectFit = "contain"; // garante que abre ajustada
+                        imgClone.style.maxWidth = "100%";
+                        imgClone.style.maxHeight = "100%";
+
+                        lightbox.innerHTML = "";
+                        lightbox.appendChild(imgClone);
+                        lightbox.style.display = "flex";
+                        scale = 1;
+                        translateX = translateY = 0;
+                        updateTransform(imgClone);
+
+                        // Mensagem de dica
+                        const hint = document.createElement("div");
+                        hint.classList.add("lightbox-hint");
+                        hint.innerText = "Use a roda do mouse para dar zoom e arraste para mover";
+                        lightbox.appendChild(hint);
+
+                        // Remove a dica após 4s
+                        setTimeout(() => {
+                            if (hint && hint.parentNode) {
+                                hint.remove();
+                            }
+                        }, 4000);
+
+                        // Zoom com scroll
+                        imgClone.addEventListener("wheel", e => {
+                            e.preventDefault();
+                            scale += e.deltaY * -0.001;
+                            scale = Math.min(Math.max(1, scale), 5); // limite de zoom
+                            updateTransform(imgClone);
+                        });
+
+                        // Arrastar imagem
+                        imgClone.addEventListener("mousedown", e => {
+                            isDragging = true;
+                            startX = e.clientX - translateX;
+                            startY = e.clientY - translateY;
+                            lightbox.style.cursor = "grabbing";
+                        });
+
+                        window.addEventListener("mousemove", e => {
+                            if (!isDragging) return;
+                            translateX = e.clientX - startX;
+                            translateY = e.clientY - startY;
+                            updateTransform(imgClone);
+                        });
+
+                        window.addEventListener("mouseup", () => {
+                            isDragging = false;
+                            lightbox.style.cursor = "grab";
+                        });
+                    });
+                });
+
+                // Fecha clicando fora da imagem
+                lightbox.addEventListener("click", e => {
+                    if (e.target === lightbox) {
+                        lightbox.style.display = "none";
+                    }
+                });
+
+                // Função para aplicar zoom + movimento
+                function updateTransform(img) {
+                    img.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
+                }
+
+            document.querySelectorAll('.acordeon-header, .acordeon-headerb, .acordeon-headerc, .acordeon-headerd').forEach(header => {
+                    header.addEventListener('click', () => {
+                        const content = header.nextElementSibling;
+                        const isVisible = content.style.display === 'block';
+                        content.style.display = isVisible ? 'none' : 'block';
+                        const icon = header.querySelector('.acordeon-icon');
+                        if (icon) {
+                            icon.classList.toggle('bx-chevron-up', !isVisible);
+                            icon.classList.toggle('bx-chevron-down', isVisible);
+                        }
+                    });
+                });
+
+                // Função para abrir o modal com o vídeo
+                    function openVideoModal(element) {
+                        var videoModal = document.getElementById('videoModal');
+                        var iframe = document.getElementById('videoIframe');
+
+                        // Obtém o link do vídeo do atributo 'data-video' do ícone de play clicado
+                        var videoLink = element.getAttribute("data-video");
+
+                        // Define o src do iframe com o link do vídeo
+                        iframe.src = videoLink;
+
+                        // Exibe o modal
+                        videoModal.style.display = "flex";
+                    }
+
+                    // Função para fechar o modal
+                    function closeVideoModal() {
+                        var videoModal = document.getElementById('videoModal');
+                        var iframe = document.getElementById('videoIframe');
+
+                        // Limpa o vídeo (remove a URL para evitar que o vídeo continue tocando)
+                        iframe.src = "";
+                        videoModal.style.display = "none";  // Fecha o modal
+                    }
+
+                    // Impede o fechamento do modal quando o clique for dentro do modal de vídeo
+                    document.getElementById('videoModal').addEventListener('click', function (event) {
+                        // Apenas fecha o modal se o clique for fora da área de conteúdo (ou seja, na área preta)
+                        if (event.target === this) {
+                            closeVideoModal();
+                        }
+                    });
+        </script>
+</body>
+</html>
