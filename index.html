@@ -1828,6 +1828,62 @@
         .paragraforeduzido {
             font-size: 14px;
         }
+        /* wrapper: por padrão visível; no mobile vira rolável */
+.math-mobile-scroll {
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  overflow-x: visible;              /* padrão desktop */
+  -webkit-overflow-scrolling: auto;
+}
+
+/* aparência do badge (desktop preservado) */
+.math-badge {
+  display: inline-block;
+  padding: 8px 20px;
+  border: 2px solid #015A42;
+  border-radius: 10px;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+/* --- MOBILE: ativa rolagem e força nowrap dentro do wrapper --- */
+@media (max-width: 600px) {
+  .math-mobile-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 0 0.5rem;
+  }
+
+  /* badge em uma só linha para rolagem */
+  .math-mobile-scroll .math-badge {
+    white-space: nowrap !important;
+    display: inline-block !important;
+    min-width: max-content !important;
+    max-width: none !important;
+  }
+
+  /* FORÇAR os elementos que MathJax cria a respeitarem nowrap e não limitarem a largura.
+     Isso usa selectors para v2/v3 e aplica !important para garantir prioridade. */
+  .math-mobile-scroll .MathJax,
+  .math-mobile-scroll mjx-container,
+  .math-mobile-scroll .mjx-chtml,
+  .math-mobile-scroll .MathJax_SVG,
+  .math-mobile-scroll .MathJax_Display,
+  .math-mobile-scroll .MathJax_Preview {
+    display: inline-block !important;
+    white-space: nowrap !important;
+    max-width: none !important;
+    overflow: visible !important;
+  }
+
+  /* conforto visual: scrollbar pequena (apenas em WebKit) */
+  .math-mobile-scroll::-webkit-scrollbar { height: 8px; }
+  .math-mobile-scroll::-webkit-scrollbar-thumb {
+    background: rgba(0,0,0,0.18);
+    border-radius: 6px;
+  }
+}
     </style>
 </head>
 <body>
@@ -2164,13 +2220,13 @@
                 A ordem crescente de energia dos subníveis é:
             </p>
             <br>
-            <p style="text-align:center;">
-                <span
-                    style="display:inline-block; padding:8px 20px; border:2px solid #015A42; border-radius:10px; background-color: #fff;">
-                    \( 1s^2\ 2s^2\ 2p^6\ 3s^2\ 3p^6\ 4s^2\ 3d^{10}\ 4p^6\ 5s^2\ 4d^{10}\ 5p^6\ 6s^2\ 4f^{14}\ 5d^{10}\ 6p^6\ 7s^2\ 5f^{14}\
-                    6d^{10}\ 7p^6 \)
+            <!-- HTML: coloca esse bloco onde estava a expressão -->
+            <div class="math-mobile-scroll" aria-label="expressão matemática com scroll horizontal no mobile">
+                <span class="math-badge">
+                    \( 1s^2\ 2s^2\ 2p^6\ 3s^2\ 3p^6\ 4s^2\ 3d^{10}\ 4p^6\ 5s^2\ 4d^{10}\ 5p^6\ 6s^2\ 4f^{14}\ 5d^{10}\ 6p^6\ 7s^2\
+                    5f^{14}\ 6d^{10}\ 7p^6 \)
                 </span>
-            </p>
+            </div>
             <br>
             <p>
                 O subnível de maior nível energético é o <b><i>7p</i></b>. Repare que o subnível 4s é menos energético que o 3d.
@@ -3126,6 +3182,61 @@
                             closeVideoModal();
                         }
                     });
+
+                    (function () {
+                            function applyNoWrapToMathNodes(wrapper) {
+                                // aplica estilo direto (por segurança) nos nós inseridos pelo MathJax
+                                wrapper.querySelectorAll('mjx-container, .MathJax, .mjx-chtml, .MathJax_SVG').forEach(n => {
+                                    n.style.display = 'inline-block';
+                                    n.style.whiteSpace = 'nowrap';
+                                    n.style.maxWidth = 'none';
+                                    n.style.overflow = 'visible';
+                                });
+                            }
+
+                            function onMathReady() {
+                                document.querySelectorAll('.math-mobile-scroll').forEach(wrapper => {
+                                    applyNoWrapToMathNodes(wrapper);
+                                    // opcional: reset do scroll para esquerda (evita estar deslocado)
+                                    wrapper.scrollLeft = 0;
+
+                                    // observe inserções (caso MathJax re-renderize)
+                                    if (!wrapper._mathObserver) {
+                                        const mo = new MutationObserver(muts => {
+                                            applyNoWrapToMathNodes(wrapper);
+                                        });
+                                        mo.observe(wrapper, { childList: true, subtree: true });
+                                        wrapper._mathObserver = mo;
+                                    }
+                                });
+                            }
+
+                            // Tenta detectar MathJax v3/v2 e executar no momento correto
+                            if (window.MathJax) {
+                                // v3
+                                if (MathJax.typesetPromise) {
+                                    // se já carregado, roda uma vez
+                                    MathJax.typesetPromise().then(onMathReady).catch(() => onMathReady());
+                                    // e observa globalmente (caso novos typesets ocorram)
+                                    const orig = MathJax.typesetPromise.bind(MathJax);
+                                    MathJax.typesetPromise = function () {
+                                        return orig.apply(null, arguments).then(res => { onMathReady(); return res; });
+                                    };
+                                } else if (MathJax.Hub) {
+                                    // v2
+                                    MathJax.Hub.Queue(function () { onMathReady(); });
+                                    MathJax.Hub.Register.MessageHook("End Typeset", function () { onMathReady(); });
+                                } else {
+                                    // fallback
+                                    setTimeout(onMathReady, 300);
+                                }
+                            } else {
+                                // sem MathJax ainda: roda ao DOMContentLoaded e aguarda futuras inserções
+                                document.addEventListener('DOMContentLoaded', function () {
+                                    setTimeout(onMathReady, 300);
+                                });
+                            }
+                        })();
         </script>
 </body>
 </html>
